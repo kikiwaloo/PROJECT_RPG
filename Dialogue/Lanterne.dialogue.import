@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://cfe5gt0guedik"
+path="res://.godot/imported/Lanterne.dialogue-a8360b63df24f50e503248d1c45fc65d.tres"
+
+[deps]
+
+source_file="res://Dialogue/Lanterne.dialogue"
+dest_files=["res://.godot/imported/Lanterne.dialogue-a8360b63df24f50e503248d1c45fc65d.tres"]
+
+[params]
+
+defaults=true

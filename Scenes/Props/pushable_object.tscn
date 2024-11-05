@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmaguxjus0hum"]
+
+[ext_resource type="Script" path="res://Scenes/Props/pushable_object.gd" id="1_1q1sb"]
+
+[node name="Pushable_Object" type="RigidBody2D"]
+collision_layer = 16
+collision_mask = 273
+gravity_scale = 0.0
+lock_rotation = true
+script = ExtResource("1_1q1sb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

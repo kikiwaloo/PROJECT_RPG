@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://cnt7o2jkmhs5o"
+path="res://.godot/imported/Night_Room.dialogue-f6869bfd41280ea4dc29e756d280c396.tres"
+
+[deps]
+
+source_file="res://Dialogue/Night_Room.dialogue"
+dest_files=["res://.godot/imported/Night_Room.dialogue-f6869bfd41280ea4dc29e756d280c396.tres"]
+
+[params]
+
+defaults=true

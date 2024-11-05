@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bswlf4ln5ejpk"]
+
+[ext_resource type="PackedScene" uid="uid://b6lm0occ7485n" path="res://Scenes/Levels/player_spawn.tscn" id="1_a2u2m"]
+[ext_resource type="PackedScene" uid="uid://c826gbhjyv5uj" path="res://Scenes/Grass_01.tscn" id="1_qov0d"]
+
+[node name="World_Maker" type="Node2D"]
+
+[node name="Grass_01" parent="." instance=ExtResource("1_qov0d")]
+
+[node name="Player_Spawn" parent="." instance=ExtResource("1_a2u2m")]
+
+[node name="Enemys" type="Node2D" parent="."]
+y_sort_enabled = true

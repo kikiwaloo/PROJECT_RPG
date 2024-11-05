@@ -1,0 +1,40 @@
+~ start
+
+if MDP == true:
+	Boy: Tu veux que je te redise la phrase?
+	- oui
+		Boy: "Il faut raffraichir les maquignons!!"
+	- non
+		Hero: C'est bon, c'est pour voir si tu suivais.
+			HA!HA!HA.
+else:
+	Boy: Hey!! Comment est tu arrivé là?
+		Tu as réussi à couper les buissons!!
+	Hero: Oui, j'ai récupèré une épée chez
+		mamie Coco.
+	Boy: Ho merci je vais pouvoir sortir d'ici!
+		ça fait un moment que j'ai pas vu la lumière 
+		du jour!!!
+	Hero: Comptent d'avoir pu t'aider.
+		Mais dehor c'est pas la fète!!!
+		Y'a des monstres partout!!!
+	Boy: Tu vas pouvoir arranger ça avec ton épée?
+	Hero: Je vais faire de mon mieux!!!
+	Boy: Ha oui, ou faite si jamais tu vas
+		au chateau. Tu vas tomber sur un goblin
+		pas trés cool.
+	Boy: Il va te demander un mot de passe.
+		Je te le donne, ça va lui clouer le bec.
+	Boy: Le mot de passe pour qui te laisse enter.
+	Boy: c'est la phrase....
+		"Il faut raffraichir les maquignons"
+	Boy: c'est bon tu t'en souviendras?
+
+	- oui
+		Hero: Bien sur, j'ai une exellente mémoire!!!!
+		set MDP = true
+	- non
+		Boy: Tu veux que je te le note!!!
+
+
+=> END

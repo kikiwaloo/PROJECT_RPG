@@ -1,0 +1,160 @@
+[gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_7w3r8"]
+
+[resource]
+script = ExtResource("1_7w3r8")
+using_states = PackedStringArray()
+titles = {
+"start": "3"
+}
+character_names = PackedStringArray("Fanny", "Hero")
+first_title = "3"
+lines = {
+"1": {
+"id": "1",
+"next_id": "3",
+"text": "start",
+"type": &"title"
+},
+"11": {
+"character": "Hero",
+"character_replacements": Array[Dictionary]([]),
+"id": "11",
+"next_id": "12",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "Ok, sa maison est bien sur la colline au bout du village?",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Ok, sa maison est bien sur la colline au bout du village?",
+"type": &"dialogue"
+},
+"12": {
+"character": "Fanny",
+"character_replacements": Array[Dictionary]([]),
+"id": "12",
+"next_id": "14",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "oui, c'est ça.
+Il parait qu'elle garde un trésor dans ça remise au font du jardin.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "oui, c'est ça.
+Il parait qu'elle garde un trésor dans ça remise au font du jardin.",
+"type": &"dialogue"
+},
+"14": {
+"character": "Hero",
+"character_replacements": Array[Dictionary]([]),
+"id": "14",
+"next_id": "15",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "Merci pour l'info, j'y vais de ce pas.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Merci pour l'info, j'y vais de ce pas.",
+"type": &"dialogue"
+},
+"15": {
+"character": "Fanny",
+"character_replacements": Array[Dictionary]([]),
+"id": "15",
+"next_id": "17",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "Bonne chance, elle est pas commaude!!!",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Bonne chance, elle est pas commaude!!!",
+"type": &"dialogue"
+},
+"17": {
+"id": "17",
+"is_snippet": false,
+"next_id": "end",
+"type": &"goto"
+},
+"3": {
+"character": "Fanny",
+"character_replacements": Array[Dictionary]([]),
+"id": "3",
+"next_id": "4",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "Hey salut toi!!",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Hey salut toi!!",
+"type": &"dialogue"
+},
+"4": {
+"character": "Hero",
+"character_replacements": Array[Dictionary]([]),
+"id": "4",
+"next_id": "5",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "Bonjour fillette, comment t'appel tu?",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Bonjour fillette, comment t'appel tu?",
+"type": &"dialogue"
+},
+"5": {
+"character": "Fanny",
+"character_replacements": Array[Dictionary]([]),
+"id": "5",
+"next_id": "6",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "Je m'appel Fanny, et toi?",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Je m'appel Fanny, et toi?",
+"type": &"dialogue"
+},
+"6": {
+"character": "Hero",
+"character_replacements": Array[Dictionary]([]),
+"id": "6",
+"next_id": "8",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "Moi c'est Krus.
+je cherche mamie Coco, tu ne saurais pas ou la trouver?",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Moi c'est Krus.
+je cherche mamie Coco, tu ne saurais pas ou la trouver?",
+"type": &"dialogue"
+},
+"8": {
+"character": "Fanny",
+"character_replacements": Array[Dictionary]([]),
+"id": "8",
+"next_id": "11",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "Ha mais c'est toi le jeune garçon venu nous sauver!!!
+Tu cherche mamie Coco, elle doit surement ètre chez elle.
+Elle ne sort jamais, elle n'aime pas trop les gens.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Ha mais c'est toi le jeune garçon venu nous sauver!!!
+Tu cherche mamie Coco, elle doit surement ètre chez elle.
+Elle ne sort jamais, elle n'aime pas trop les gens.",
+"type": &"dialogue"
+}
+}
+raw_text = "~ start
+
+Fanny: Hey salut toi!!
+Hero: Bonjour fillette, comment t'appel tu?
+Fanny: Je m'appel Fanny, et toi?
+Hero: Moi c'est Krus.
+	je cherche mamie Coco, tu ne saurais pas ou la trouver?
+Fanny: Ha mais c'est toi le jeune garçon venu nous sauver!!!
+	Tu cherche mamie Coco, elle doit surement ètre chez elle.
+	Elle ne sort jamais, elle n'aime pas trop les gens.
+Hero: Ok, sa maison est bien sur la colline au bout du village?
+Fanny: oui, c'est ça.
+	Il parait qu'elle garde un trésor dans ça remise au font du jardin.
+Hero: Merci pour l'info, j'y vais de ce pas.
+Fanny: Bonne chance, elle est pas commaude!!!
+
+=> END"
+metadata/dialogue_manager_version = "2.41.3"

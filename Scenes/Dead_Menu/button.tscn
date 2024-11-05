@@ -1,0 +1,71 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmmc0nk6h5fir"]
+
+[ext_resource type="Texture2D" uid="uid://j0k8y8fkomwh" path="res://Scenes/Dead_Menu/goldskull.png" id="1_q6751"]
+
+[sub_resource type="GDScript" id="GDScript_jvy5p"]
+script/source = "@tool
+extends TextureButton
+
+@export var text = \"Text button\"
+@export var arrow_margin_from_center = 100
+
+func _ready():
+	setup_text()
+	hide_arrows()
+	set_focus_mode(Control.FOCUS_ALL)
+
+func _process(_delta):
+	if Engine.is_editor_hint():
+		setup_text()
+		show_arrows()
+	
+func setup_text():
+	$RichTextLabel.bbcode_text = \"[center] %s [/center]\" % [text]
+	
+func show_arrows():
+	for arrow in [$Select_Left]:
+		arrow.visible = true
+		arrow.global_position.y = global_position.y + (size.y / 3.0)
+
+	var center_x = global_position.x + (size.x / 2)
+	$Select_Left.global_position.x = center_x - arrow_margin_from_center
+	
+
+func hide_arrows():
+	for arrow in [$Select_Left]:
+		arrow.visible = false
+
+func _on_TextureButton_focus_entered():
+	show_arrows()
+
+func _on_TextureButton_focus_exited():
+	hide_arrows()
+
+func _on_TextureButton_mouse_entered():
+	grab_focus()
+"
+
+[node name="TextureButton" type="Button"]
+custom_minimum_size = Vector2(0, 20)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = ""
+script = SubResource("GDScript_jvy5p")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[center] Text button [/center]"
+
+[node name="Select_Left" type="Sprite2D" parent="."]
+position = Vector2(220, 120)
+texture = ExtResource("1_q6751")
+flip_h = true

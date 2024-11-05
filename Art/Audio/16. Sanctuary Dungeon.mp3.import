@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c5g2p8dj6b7x5"
+path="res://.godot/imported/16. Sanctuary Dungeon.mp3-4006f648b489635b1cb091238434ad49.mp3str"
+
+[deps]
+
+source_file="res://Art/Audio/16. Sanctuary Dungeon.mp3"
+dest_files=["res://.godot/imported/16. Sanctuary Dungeon.mp3-4006f648b489635b1cb091238434ad49.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

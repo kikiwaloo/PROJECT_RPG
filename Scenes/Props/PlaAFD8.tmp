@@ -1,0 +1,164 @@
+[gd_scene load_steps=21 format=3 uid="uid://d10vpos6hx71"]
+
+[ext_resource type="Texture2D" uid="uid://dv0o07q05g1o2" path="res://Scenes/Props/Sprite/Props.png" id="1_lm6fl"]
+[ext_resource type="Script" path="res://Scenes/Props/Plants.gd" id="1_p5quv"]
+[ext_resource type="PackedScene" uid="uid://6lbbsist5e31" path="res://Scenes/Over_Lap/Hit_Box/Hit_Box.tscn" id="2_auha8"]
+[ext_resource type="Resource" uid="uid://d4yif7w640xr" path="res://Scenes/Items/Item_Data/Apple.tres" id="5_xayrt"]
+[ext_resource type="Script" path="res://Scenes/Items/Script/Drop_Data.gd" id="6_qatnt"]
+[ext_resource type="Resource" uid="uid://oylpswe7ldmx" path="res://Scenes/Items/Item_Data/Blue_Rupee.tres" id="7_yk56d"]
+[ext_resource type="Resource" uid="uid://dfke8raew0j44" path="res://Scenes/Items/Item_Data/Green_Rupee.tres" id="8_k7kw3"]
+[ext_resource type="PackedScene" uid="uid://bu56nbjojd4mg" path="res://Scenes/Interact/Throwable/Throwable.tscn" id="9_228nv"]
+[ext_resource type="Resource" uid="uid://bycoeiffo1qcu" path="res://Scenes/Items/Item_Data/Red_Rupee.tres" id="9_w45mq"]
+
+[sub_resource type="Resource" id="Resource_g0s0f"]
+script = ExtResource("6_qatnt")
+item = ExtResource("5_xayrt")
+probabitity = 30.0
+min_amount = 1
+max_amount = 1
+
+[sub_resource type="Resource" id="Resource_1w5ds"]
+script = ExtResource("6_qatnt")
+item = ExtResource("7_yk56d")
+probabitity = 30.0
+min_amount = 1
+max_amount = 1
+
+[sub_resource type="Resource" id="Resource_eccgg"]
+script = ExtResource("6_qatnt")
+item = ExtResource("8_k7kw3")
+probabitity = 30.0
+min_amount = 1
+max_amount = 5
+
+[sub_resource type="Resource" id="Resource_ouheu"]
+script = ExtResource("6_qatnt")
+item = ExtResource("9_w45mq")
+probabitity = 10.0
+min_amount = 1
+max_amount = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7qlkh"]
+size = Vector2(28, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_quvu2"]
+size = Vector2(24, 16)
+
+[sub_resource type="Animation" id="Animation_70wet"]
+resource_name = "Idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_7ttju"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_hr03t"]
+resource_name = "Destroy"
+length = 0.2
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lb5yl"]
+_data = {
+"Destroy": SubResource("Animation_hr03t"),
+"Idle": SubResource("Animation_70wet"),
+"RESET": SubResource("Animation_7ttju")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3etpi"]
+size = Vector2(28, 17)
+
+[node name="Plants" type="Node2D"]
+position = Vector2(0, -9)
+script = ExtResource("1_p5quv")
+drops = Array[ExtResource("6_qatnt")]([SubResource("Resource_g0s0f"), SubResource("Resource_1w5ds"), SubResource("Resource_eccgg"), SubResource("Resource_ouheu")])
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_lm6fl")
+hframes = 16
+vframes = 3
+
+[node name="Hit_Box" parent="." instance=ExtResource("2_auha8")]
+position = Vector2(0, 9)
+collision_layer = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hit_Box"]
+position = Vector2(0, -7.5)
+shape = SubResource("RectangleShape2D_7qlkh")
+debug_color = Color(0.647059, 0.521569, 0.00784314, 0.419608)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 9)
+shape = SubResource("RectangleShape2D_quvu2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_lb5yl")
+}
+
+[node name="Throwable" parent="." instance=ExtResource("9_228nv")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Throwable"]
+position = Vector2(0, 8.5)
+shape = SubResource("RectangleShape2D_3etpi")

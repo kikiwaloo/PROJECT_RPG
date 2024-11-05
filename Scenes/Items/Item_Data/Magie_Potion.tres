@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=6 format=3 uid="uid://dfw6hk4f0j4fg"]
+
+[ext_resource type="Script" path="res://Scenes/Items/Items_Effect/MagiePotion.gd" id="1_fokm6"]
+[ext_resource type="Script" path="res://Scenes/Items/Script/Item_Data.gd" id="1_rc2sa"]
+[ext_resource type="AudioStream" uid="uid://bvbsix0p6rn5l" path="res://Art/Audio/LTTP_Magic.wav" id="1_rrv8c"]
+[ext_resource type="Texture2D" uid="uid://cb0x0r3rq6vdc" path="res://Art/Items/PickUp/Potion_Magie.png" id="2_vnnv3"]
+
+[sub_resource type="Resource" id="Resource_0o8v8"]
+script = ExtResource("1_fokm6")
+audio = ExtResource("1_rrv8c")
+use_description = ""
+
+[resource]
+script = ExtResource("1_rc2sa")
+type = 2
+name = "Magie_Potion"
+description = "Potion de magie, elle restort 50%
+de MP."
+texture = ExtResource("2_vnnv3")
+value = 1
+effects = Array[Resource("res://Scenes/Items/Items_Effect/Items_Effet.gd")]([SubResource("Resource_0o8v8")])

@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=3 uid="uid://biy4cxtuabj2x"]
+
+[ext_resource type="Texture2D" uid="uid://b5utduq6uwo30" path="res://Art/Characters/NPC/Goblin.png" id="1_xcrsb"]
+[ext_resource type="Script" path="res://Scenes/NPCs/Goblin.gd" id="1_yqlfb"]
+[ext_resource type="PackedScene" uid="uid://b0hd1krpyym6b" path="res://Scenes/Over_Lap/actionable.tscn" id="2_ea8fb"]
+[ext_resource type="Resource" uid="uid://ds0oc3asc83r7" path="res://Dialogue/Goblin.dialogue" id="3_diybo"]
+[ext_resource type="PackedScene" uid="uid://c064xhq6au0sf" path="res://Scenes/Over_Lap/Persistence_Data_Handler/PersistenceDataHandler.tscn" id="5_5mk7r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m1uch"]
+size = Vector2(56, 64)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bgoe0"]
+radius = 64.4981
+
+[node name="NPC_Goblin" type="CharacterBody2D"]
+z_index = -1
+texture_filter = 1
+collision_layer = 16
+collision_mask = 257
+wall_min_slide_angle = 0.139626
+script = ExtResource("1_yqlfb")
+dist = 50.0
+speed = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, -32)
+shape = SubResource("RectangleShape2D_m1uch")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -40)
+texture = ExtResource("1_xcrsb")
+
+[node name="Actionable" parent="." instance=ExtResource("2_ea8fb")]
+dialogue_resource = ExtResource("3_diybo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Actionable"]
+position = Vector2(0, -32)
+shape = SubResource("CircleShape2D_bgoe0")
+
+[node name="Pos_Data" parent="." instance=ExtResource("5_5mk7r")]

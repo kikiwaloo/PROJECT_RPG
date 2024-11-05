@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=6 format=3 uid="uid://461n1wwwoaa0"]
+
+[ext_resource type="AudioStream" uid="uid://ce0tvyk3yf6tq" path="res://Art/Audio/LTTP_Get_Key.wav" id="1_ma76t"]
+[ext_resource type="Script" path="res://Scenes/Items/Items_Effect/Small_Key_Effect.gd" id="1_u8q5f"]
+[ext_resource type="Script" path="res://Scenes/Items/Script/Item_Data.gd" id="1_wneg7"]
+[ext_resource type="Texture2D" uid="uid://dmtg4bwisi2d4" path="res://Art/Items/PickUp/Key.png" id="2_rlgx1"]
+
+[sub_resource type="Resource" id="Resource_61g2j"]
+script = ExtResource("1_u8q5f")
+audio = ExtResource("1_ma76t")
+use_description = ""
+
+[resource]
+script = ExtResource("1_wneg7")
+type = 0
+name = "Key"
+description = ""
+texture = ExtResource("2_rlgx1")
+value = 1
+effects = Array[Resource("res://Scenes/Items/Items_Effect/Items_Effet.gd")]([SubResource("Resource_61g2j")])

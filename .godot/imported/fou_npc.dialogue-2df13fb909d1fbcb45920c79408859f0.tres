@@ -1,0 +1,379 @@
+[gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_olclv"]
+
+[resource]
+script = ExtResource("1_olclv")
+using_states = PackedStringArray()
+titles = {
+"start": "3"
+}
+character_names = PackedStringArray("Chevalier", "Hero", "Hero_smile")
+first_title = "3"
+lines = {
+"1": {
+"id": "1",
+"next_id": "3",
+"text": "start",
+"type": &"title"
+},
+"10": {
+"character": "Chevalier",
+"character_replacements": Array[Dictionary]([]),
+"id": "10",
+"next_id": "13",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "Enfin ça c'était vrais jusqu'à hier.
+Je sais pas ce qui c'est passé....
+Des monstres sont apparut bruscement!!!",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Enfin ça c'était vrais jusqu'à hier.
+Je sais pas ce qui c'est passé....
+Des monstres sont apparut bruscement!!!",
+"type": &"dialogue"
+},
+"13": {
+"character": "Chevalier",
+"character_replacements": Array[Dictionary]([]),
+"id": "13",
+"next_id": "15",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "Cela doit avoir un rapprt avec cet horrible
+malédiction!!!",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Cela doit avoir un rapprt avec cet horrible
+malédiction!!!",
+"type": &"dialogue"
+},
+"15": {
+"character": "Hero",
+"character_replacements": Array[Dictionary]([]),
+"id": "15",
+"next_id": "17",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "Une malédiction!!!!!!!!
+De quoi s'agit-il encore?",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Une malédiction!!!!!!!!
+De quoi s'agit-il encore?",
+"type": &"dialogue"
+},
+"17": {
+"character": "Chevalier",
+"character_replacements": Array[Dictionary]([]),
+"id": "17",
+"next_id": "19",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "La légende parle d'un crane d'or, qui aurais une valeur inéstimable!!!
+Tant par ça valeur en or et par ça fonction de gardien des ténèbre!!!!!",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "La légende parle d'un crane d'or, qui aurais une valeur inéstimable!!!
+Tant par ça valeur en or et par ça fonction de gardien des ténèbre!!!!!",
+"type": &"dialogue"
+},
+"19": {
+"character": "Hero",
+"character_replacements": Array[Dictionary]([]),
+"id": "19",
+"next_id": "21",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "Ah super, me voilà dans de beau draps!!!
+Moi qui pensait passer d'agréable vacances.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Ah super, me voilà dans de beau draps!!!
+Moi qui pensait passer d'agréable vacances.",
+"type": &"dialogue"
+},
+"21": {
+"character": "Chevalier",
+"character_replacements": Array[Dictionary]([]),
+"id": "21",
+"next_id": "23",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "C'est le terrible et terrifiant Elias de Mc Kormick
+qui a dérobé le fameut trésor au château et enlevé la princesse Séléna par la mème occasion.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "C'est le terrible et terrifiant Elias de Mc Kormick
+qui a dérobé le fameut trésor au château et enlevé la princesse Séléna par la mème occasion.",
+"type": &"dialogue"
+},
+"23": {
+"character": "Chevalier",
+"character_replacements": Array[Dictionary]([]),
+"id": "23",
+"next_id": "27",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "Mais j'y pense!!
+Et la legende parle aussi d'un courageu jeune
+homme venu pour nous sauver....
+C'est surement toi le courageu jeune homme!!!!",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Mais j'y pense!!
+Et la legende parle aussi d'un courageu jeune
+homme venu pour nous sauver....
+C'est surement toi le courageu jeune homme!!!!",
+"type": &"dialogue"
+},
+"27": {
+"character": "Hero",
+"character_replacements": Array[Dictionary]([]),
+"id": "27",
+"next_id": "30",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "Pourquoi ça serait moi, j'ai meme pas d'épée!!!
+Je ne sais meme pas me battre et je te rappel
+que je suis en vacances!!!!!!!",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Pourquoi ça serait moi, j'ai meme pas d'épée!!!
+Je ne sais meme pas me battre et je te rappel
+que je suis en vacances!!!!!!!",
+"type": &"dialogue"
+},
+"3": {
+"character": "Chevalier",
+"character_replacements": Array[Dictionary]([]),
+"id": "3",
+"next_id": "5",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "Bien le bonjour mon brave.
+Qu'est ce qui t'amène par ici?",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Bien le bonjour mon brave.
+Qu'est ce qui t'amène par ici?",
+"type": &"dialogue"
+},
+"30": {
+"character": "Chevalier",
+"character_replacements": Array[Dictionary]([]),
+"id": "30",
+"next_id": "32",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "parce que tu arrive pile poil quand les monstres
+apparaisent et qu'on enlevé la princesse.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "parce que tu arrive pile poil quand les monstres
+apparaisent et qu'on enlevé la princesse.",
+"type": &"dialogue"
+},
+"32": {
+"character": "Hero_smile",
+"character_replacements": Array[Dictionary]([]),
+"id": "32",
+"next_id": "34",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "Je suis pas une légende,
+je veux juste me reposer tranquile.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Je suis pas une légende,
+je veux juste me reposer tranquile.",
+"type": &"dialogue"
+},
+"34": {
+"character": "Chevalier",
+"character_replacements": Array[Dictionary]([]),
+"id": "34",
+"next_id": "37",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "Et oui, mais non, plus maintenant.
+Va au village qui se trouve au SUD EST et cherche la maison
+de mamie Coco.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Et oui, mais non, plus maintenant.
+Va au village qui se trouve au SUD EST et cherche la maison
+de mamie Coco.",
+"type": &"dialogue"
+},
+"37": {
+"character": "Chevalier",
+"character_replacements": Array[Dictionary]([]),
+"id": "37",
+"next_id": "39",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "C'est une vielle dame pas trés commaude
+mais elle pourrat surement t'équuiper en matos.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "C'est une vielle dame pas trés commaude
+mais elle pourrat surement t'équuiper en matos.",
+"type": &"dialogue"
+},
+"39": {
+"character": "Hero",
+"character_replacements": Array[Dictionary]([]),
+"id": "39",
+"next_id": "41",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "En matos? Une vielle dame?
+Je comprend rien a se que tu raconte!",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "En matos? Une vielle dame?
+Je comprend rien a se que tu raconte!",
+"type": &"dialogue"
+},
+"41": {
+"character": "Chevalier",
+"character_replacements": Array[Dictionary]([]),
+"id": "41",
+"next_id": "44",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "Oui du matos de chevalier!!
+épée, lampe, et je ne sais quoi d'autre.
+Tu verra bien!!!!",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Oui du matos de chevalier!!
+épée, lampe, et je ne sais quoi d'autre.
+Tu verra bien!!!!",
+"type": &"dialogue"
+},
+"44": {
+"character": "Hero",
+"character_replacements": Array[Dictionary]([]),
+"id": "44",
+"next_id": "48",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "Ok, donc je vais au village.
+Je trouve la maison au NE .
+Et je demande à la vielle dame.
+C'est bien ça?",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Ok, donc je vais au village.
+Je trouve la maison au NE .
+Et je demande à la vielle dame.
+C'est bien ça?",
+"type": &"dialogue"
+},
+"48": {
+"character": "Chevalier",
+"character_replacements": Array[Dictionary]([]),
+"id": "48",
+"next_id": "51",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "oui, je savais que l'on pouvait compter
+sur toi pour nous sauver et sauver la princesse.
+En plus elle est pas mal......",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "oui, je savais que l'on pouvait compter
+sur toi pour nous sauver et sauver la princesse.
+En plus elle est pas mal......",
+"type": &"dialogue"
+},
+"5": {
+"character": "Hero",
+"character_replacements": Array[Dictionary]([]),
+"id": "5",
+"next_id": "7",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "Je ne sais pas.
+Ou somme nous, quel est cette endroit?",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Je ne sais pas.
+Ou somme nous, quel est cette endroit?",
+"type": &"dialogue"
+},
+"51": {
+"character": "Chevalier",
+"character_replacements": Array[Dictionary]([]),
+"id": "51",
+"next_id": "54",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "Aller que la force soit avec toi!!!",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Aller que la force soit avec toi!!!",
+"type": &"dialogue"
+},
+"54": {
+"id": "54",
+"is_snippet": false,
+"next_id": "end",
+"type": &"goto"
+},
+"7": {
+"character": "Chevalier",
+"character_replacements": Array[Dictionary]([]),
+"id": "7",
+"next_id": "10",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "Bienvenue en terre du Centre!!!!!
+Un endroit magnifique, peuplé de merveille
+que tu ne saurait imaginer.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Bienvenue en terre du Centre!!!!!
+Un endroit magnifique, peuplé de merveille
+que tu ne saurait imaginer.",
+"type": &"dialogue"
+}
+}
+raw_text = "~ start
+
+Chevalier: Bien le bonjour mon brave.
+	Qu'est ce qui t'amène par ici?
+Hero: Je ne sais pas.
+	Ou somme nous, quel est cette endroit?
+Chevalier: Bienvenue en terre du Centre!!!!!
+	Un endroit magnifique, peuplé de merveille
+	que tu ne saurait imaginer.
+Chevalier: Enfin ça c'était vrais jusqu'à hier.
+	Je sais pas ce qui c'est passé....
+	Des monstres sont apparut bruscement!!!
+Chevalier: Cela doit avoir un rapprt avec cet horrible
+	malédiction!!!
+Hero: Une malédiction!!!!!!!!
+	De quoi s'agit-il encore?
+Chevalier: La légende parle d'un crane d'or, qui aurais une valeur inéstimable!!!
+	Tant par ça valeur en or et par ça fonction de gardien des ténèbre!!!!!
+Hero: Ah super, me voilà dans de beau draps!!!
+	Moi qui pensait passer d'agréable vacances.
+Chevalier: C'est le terrible et terrifiant Elias de Mc Kormick
+	qui a dérobé le fameut trésor au château et enlevé la princesse Séléna par la mème occasion.
+Chevalier: Mais j'y pense!!
+	Et la legende parle aussi d'un courageu jeune
+	homme venu pour nous sauver....
+	C'est surement toi le courageu jeune homme!!!!
+Hero: Pourquoi ça serait moi, j'ai meme pas d'épée!!!
+	Je ne sais meme pas me battre et je te rappel
+	que je suis en vacances!!!!!!!
+Chevalier: parce que tu arrive pile poil quand les monstres
+	apparaisent et qu'on enlevé la princesse.
+Hero_smile: Je suis pas une légende,
+	je veux juste me reposer tranquile.
+Chevalier: Et oui, mais non, plus maintenant.
+	Va au village qui se trouve au SUD EST et cherche la maison
+	de mamie Coco.
+Chevalier: C'est une vielle dame pas trés commaude
+	mais elle pourrat surement t'équuiper en matos.
+Hero: En matos? Une vielle dame?
+	Je comprend rien a se que tu raconte!
+Chevalier: Oui du matos de chevalier!!
+	épée, lampe, et je ne sais quoi d'autre.
+	Tu verra bien!!!!
+Hero: Ok, donc je vais au village.
+	Je trouve la maison au NE .
+	Et je demande à la vielle dame.
+	C'est bien ça?
+Chevalier: oui, je savais que l'on pouvait compter 
+	sur toi pour nous sauver et sauver la princesse.
+	En plus elle est pas mal......
+Chevalier: Aller que la force soit avec toi!!!
+
+
+=> END"
+metadata/dialogue_manager_version = "2.41.3"

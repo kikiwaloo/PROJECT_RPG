@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://dnkedfgq6dqcb"]
+
+[ext_resource type="Texture2D" uid="uid://cju2rhnpa5x3m" path="res://Art/Characters/NPC/NPC_Boy.png" id="1_16oqs"]
+[ext_resource type="PackedScene" uid="uid://b0hd1krpyym6b" path="res://Scenes/Over_Lap/actionable.tscn" id="2_lnykr"]
+[ext_resource type="Resource" uid="uid://cf31uj8peowhh" path="res://Dialogue/Boy_Cave.dialogue" id="3_l3wj2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1ua5u"]
+radius = 16.0
+height = 48.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vlhqf"]
+radius = 48.0
+
+[node name="Boy" type="CharacterBody2D"]
+collision_layer = 16
+collision_mask = 257
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -24)
+shape = SubResource("CapsuleShape2D_1ua5u")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -32)
+texture = ExtResource("1_16oqs")
+
+[node name="Actionable" parent="." instance=ExtResource("2_lnykr")]
+collision_mask = 4
+dialogue_resource = ExtResource("3_l3wj2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Actionable"]
+position = Vector2(0, -24)
+shape = SubResource("CircleShape2D_vlhqf")

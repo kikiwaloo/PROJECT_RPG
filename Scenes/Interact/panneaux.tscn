@@ -1,0 +1,80 @@
+[gd_scene load_steps=10 format=3 uid="uid://bagldyahadluf"]
+
+[ext_resource type="Texture2D" uid="uid://dainy4tb8i2kt" path="res://Art/Tile_Map/Deco/Panneaux.png" id="1_53xtp"]
+[ext_resource type="Script" path="res://Scenes/Interact/Panneaux.gd" id="1_dc577"]
+[ext_resource type="Texture2D" uid="uid://dmk5b4ig0w5cm" path="res://Art/Items/PickUp/items.png" id="3_ggmi5"]
+[ext_resource type="FontFile" uid="uid://cqluqgfb6mw06" path="res://Art/Font/nintendo-nes-font.ttf" id="4_wfw81"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d2y46"]
+size = Vector2(26, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aud6a"]
+size = Vector2(28, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t7sh6"]
+atlas = ExtResource("3_ggmi5")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v3iqa"]
+texture = SubResource("AtlasTexture_t7sh6")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
+
+[sub_resource type="Theme" id="Theme_panqg"]
+default_font = ExtResource("4_wfw81")
+Panel/styles/panel = SubResource("StyleBoxTexture_v3iqa")
+
+[node name="Panneaux" type="Node2D"]
+process_mode = 3
+y_sort_enabled = true
+script = ExtResource("1_dc577")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_53xtp")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 16)
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -6.5)
+shape = SubResource("RectangleShape2D_d2y46")
+
+[node name="Actionable_panel" type="Area2D" parent="."]
+position = Vector2(0, 16)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Actionable_panel"]
+position = Vector2(0, -4.5)
+shape = SubResource("RectangleShape2D_aud6a")
+debug_color = Color(0.0765775, 0.649298, 1.92523e-07, 0.42)
+
+[node name="Control" type="Control" parent="."]
+z_index = 1
+layout_mode = 3
+anchors_preset = 0
+offset_top = -88.0
+offset_bottom = -88.0
+
+[node name="Panel" type="Panel" parent="Control"]
+show_behind_parent = true
+y_sort_enabled = true
+layout_mode = 0
+offset_left = -184.0
+offset_top = -56.0
+offset_right = 200.0
+offset_bottom = 54.0
+theme = SubResource("Theme_panqg")
+
+[node name="Label" type="Label" parent="Control/Panel"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 376.0
+offset_bottom = 104.0
+
+[connection signal="area_entered" from="Actionable_panel" to="." method="_on_actionable_panel_area_entered"]
+[connection signal="area_exited" from="Actionable_panel" to="." method="_on_actionable_panel_area_exited"]

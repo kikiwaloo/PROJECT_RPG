@@ -1,0 +1,19 @@
+~ start
+
+
+Hero: Oulala!!!! 
+	On y voit pas plus loin qu'à l'aveuglette!!!!
+	je ferais mieux d'allumer ma lampe.
+ALLUMER LA LAMPE?
+- oui
+	set active_lantern = true
+- non
+	Hero: Je vais quand meme pas rester dans le noir?
+		Bon j'allume ma lampe?
+	- oui
+		set active_lantern = true
+	- non
+		Hero: Ne fait pas l'enfant allume moi cette lampe!!!
+		- oui
+			set active_lantern = true
+=> END

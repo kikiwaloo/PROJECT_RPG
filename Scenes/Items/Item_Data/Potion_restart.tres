@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=6 format=3 uid="uid://d0rbik58xkigv"]
+
+[ext_resource type="AudioStream" uid="uid://csd82jbt0sjxe" path="res://Art/Audio/LTTP_Item.wav" id="1_35kxv"]
+[ext_resource type="Script" path="res://Scenes/Items/Script/Item_Data.gd" id="1_yupp0"]
+[ext_resource type="Script" path="res://Scenes/Items/Items_Effect/Resurection_potion.gd" id="2_70fak"]
+[ext_resource type="Texture2D" uid="uid://bhd1i1r2f3fe6" path="res://Art/Items/PickUp/Potion_Restart.png" id="2_v47pg"]
+
+[sub_resource type="Resource" id="Resource_jix4n"]
+script = ExtResource("2_70fak")
+audio = ExtResource("1_35kxv")
+use_description = ""
+
+[resource]
+script = ExtResource("1_yupp0")
+type = 2
+name = "resurection potion"
+description = "Cette potion permet de revivre intantanement.
+Plutot sympa !!!!!"
+texture = ExtResource("2_v47pg")
+value = 1
+effects = Array[Resource("res://Scenes/Items/Items_Effect/Items_Effet.gd")]([SubResource("Resource_jix4n")])

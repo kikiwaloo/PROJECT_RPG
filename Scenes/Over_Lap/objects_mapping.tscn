@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b87b7ns3qix7"]
+
+[ext_resource type="Script" path="res://Scenes/Over_Lap/objects_mapping.gd" id="1_ilwf8"]
+
+[node name="Objects_Mapping" type="Node"]
+script = ExtResource("1_ilwf8")

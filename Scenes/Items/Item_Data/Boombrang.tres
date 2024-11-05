@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://q704amdeb4if"]
+
+[ext_resource type="Script" path="res://Scenes/Items/Script/Item_Data.gd" id="1_wcuw6"]
+[ext_resource type="Texture2D" uid="uid://dhksjjrrwlwu7" path="res://Art/Items/PickUp/Boomerang.png" id="2_7a5ib"]
+
+[resource]
+script = ExtResource("1_wcuw6")
+type = 1
+name = "Boombrang"
+description = "Classe ce boombrang, je peux peut etre attraper des objets éloignés."
+texture = ExtResource("2_7a5ib")
+value = 1
+effects = Array[Resource("res://Scenes/Items/Items_Effect/Items_Effet.gd")]([])

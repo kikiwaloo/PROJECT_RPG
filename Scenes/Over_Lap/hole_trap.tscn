@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4ain53ww882w"]
+
+[ext_resource type="Script" path="res://Scenes/Over_Lap/hole_trap.gd" id="1_nb0in"]
+
+[node name="Hole_Trap" type="Area2D"]
+collision_layer = 0
+script = ExtResource("1_nb0in")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]

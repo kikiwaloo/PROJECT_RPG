@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="NPCResource" load_steps=3 format=3 uid="uid://b5y6bh76k7l6v"]
+
+[ext_resource type="Script" path="res://Scenes/NPCs/Script/NpcResource.gd" id="1_61iuc"]
+[ext_resource type="Texture2D" uid="uid://cs1xfdpw2cb3" path="res://Scenes/NPCs/Sprites/Chevalier.png" id="2_bonwv"]
+
+[resource]
+script = ExtResource("1_61iuc")
+npc_name = "Chevalier"
+sprite = ExtResource("2_bonwv")
+dialog_audio_pitch = ""

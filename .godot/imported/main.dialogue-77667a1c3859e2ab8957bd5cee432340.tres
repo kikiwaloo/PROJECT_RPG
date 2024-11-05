@@ -1,0 +1,818 @@
+[gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_3w42v"]
+
+[resource]
+script = ExtResource("1_3w42v")
+using_states = PackedStringArray()
+titles = {
+"continu": "65",
+"start": "3"
+}
+character_names = PackedStringArray("Coco", "Hero")
+first_title = "3"
+lines = {
+"1": {
+"id": "1",
+"next_id": "3",
+"text": "start",
+"type": &"title"
+},
+"10": {
+"character": "Coco",
+"character_replacements": Array[Dictionary]([]),
+"id": "10",
+"next_id": "11",
+"notes": "",
+"parent_id": "9",
+"tags": PackedStringArray(),
+"text": "Alors tu as trouvé mon trésor???",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Alors tu as trouvé mon trésor???",
+"type": &"dialogue"
+},
+"11": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "11",
+"next_id": "12",
+"next_id_after": "23",
+"notes": "",
+"parent_id": "9",
+"responses": PackedStringArray("11", "24"),
+"tags": PackedStringArray(),
+"text": "oui",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "oui",
+"type": &"response"
+},
+"12": {
+"condition": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "present"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "variable",
+"value": "true"
+}, {
+"type": "and_or",
+"value": "and"
+}, {
+"type": "variable",
+"value": "quest"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "variable",
+"value": "true"
+}, {
+"type": "colon"
+}])
+},
+"id": "12",
+"next_conditional_id": "20",
+"next_id": "13",
+"next_id_after": "19",
+"parent_id": "11",
+"type": &"condition"
+},
+"13": {
+"character": "Hero",
+"character_replacements": Array[Dictionary]([]),
+"id": "13",
+"next_id": "14",
+"notes": "",
+"parent_id": "12",
+"tags": PackedStringArray(),
+"text": "Voila tenez il est à vous.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Voila tenez il est à vous.",
+"type": &"dialogue"
+},
+"14": {
+"character": "Coco",
+"character_replacements": Array[Dictionary]([]),
+"id": "14",
+"next_id": "16",
+"notes": "",
+"parent_id": "12",
+"tags": PackedStringArray(),
+"text": "Merci il est magnifique!!!!
+Tiens voila la clé, prend ce que tu veux. Et bonne chance!!",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Merci il est magnifique!!!!
+Tiens voila la clé, prend ce que tu veux. Et bonne chance!!",
+"type": &"dialogue"
+},
+"16": {
+"id": "16",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "nb_keys"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "number",
+"value": 1
+}]),
+"is_blocking": true
+},
+"next_id": "17",
+"parent_id": "12",
+"type": &"mutation"
+},
+"17": {
+"id": "17",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "small_key"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "variable",
+"value": "true"
+}]),
+"is_blocking": true
+},
+"next_id": "18",
+"parent_id": "12",
+"type": &"mutation"
+},
+"18": {
+"id": "18",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "accept_mamie_coco"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "yes"
+}]),
+"is_blocking": true
+},
+"next_id": "19",
+"parent_id": "12",
+"type": &"mutation"
+},
+"19": {
+"id": "19",
+"is_snippet": false,
+"next_id": "end!",
+"parent_id": "11",
+"type": &"goto"
+},
+"20": {
+"id": "20",
+"next_conditional_id": "23",
+"next_id": "21",
+"next_id_after": "23",
+"parent_id": "11",
+"type": &"condition"
+},
+"21": {
+"character": "Coco",
+"character_replacements": Array[Dictionary]([]),
+"id": "21",
+"next_id": "23",
+"notes": "",
+"parent_id": "20",
+"tags": PackedStringArray(),
+"text": "Tu essais de m'arrnaquer!!!!!
+Je vois bien que tu n'as rien trouvé, vas chercher mon pendentif si tu veux continuer ton aventure!!",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Tu essais de m'arrnaquer!!!!!
+Je vois bien que tu n'as rien trouvé, vas chercher mon pendentif si tu veux continuer ton aventure!!",
+"type": &"dialogue"
+},
+"23": {
+"id": "23",
+"is_snippet": false,
+"next_id": "end!",
+"type": &"goto"
+},
+"24": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "24",
+"next_id": "25",
+"next_id_after": "27",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "non",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "non",
+"type": &"response"
+},
+"25": {
+"character": "Hero",
+"character_replacements": Array[Dictionary]([]),
+"id": "25",
+"next_id": "26",
+"notes": "",
+"parent_id": "24",
+"tags": PackedStringArray(),
+"text": "Non, je repart à ça recherche!!!",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Non, je repart à ça recherche!!!",
+"type": &"dialogue"
+},
+"26": {
+"character": "Coco",
+"character_replacements": Array[Dictionary]([]),
+"id": "26",
+"next_id": "27",
+"notes": "",
+"parent_id": "24",
+"tags": PackedStringArray(),
+"text": "Fait vite les monstres sont de plus en plus nombreux!!!!",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Fait vite les monstres sont de plus en plus nombreux!!!!",
+"type": &"dialogue"
+},
+"27": {
+"id": "27",
+"is_snippet": false,
+"next_id": "end!",
+"type": &"goto"
+},
+"28": {
+"id": "28",
+"next_conditional_id": "42",
+"next_id": "29",
+"next_id_after": "42",
+"type": &"condition"
+},
+"29": {
+"character": "Hero",
+"character_replacements": Array[Dictionary]([]),
+"id": "29",
+"next_id": "30",
+"notes": "",
+"parent_id": "28",
+"tags": PackedStringArray(),
+"text": "salut!!",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "salut!!",
+"type": &"dialogue"
+},
+"3": {
+"condition": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "accept_mamie_coco"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "string",
+"value": "yes"
+}, {
+"type": "colon"
+}])
+},
+"id": "3",
+"next_conditional_id": "9",
+"next_id": "4",
+"next_id_after": "9",
+"type": &"condition"
+},
+"30": {
+"character": "Coco",
+"character_replacements": Array[Dictionary]([]),
+"id": "30",
+"next_id": "31",
+"notes": "",
+"parent_id": "28",
+"tags": PackedStringArray(),
+"text": "Bonjour",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Bonjour",
+"type": &"dialogue"
+},
+"31": {
+"character": "Coco",
+"character_replacements": Array[Dictionary]([]),
+"id": "31",
+"next_id": "34",
+"notes": "",
+"parent_id": "28",
+"tags": PackedStringArray(),
+"text": "Qu'est-ce que tu fais dans ma maison!!?
+Tu est venu pour me voler, sort de là j'aime pas bien les gens!!!
+Surtout les petits chenappants comme toi!!!!",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Qu'est-ce que tu fais dans ma maison!!?
+Tu est venu pour me voler, sort de là j'aime pas bien les gens!!!
+Surtout les petits chenappants comme toi!!!!",
+"type": &"dialogue"
+},
+"34": {
+"character": "Hero",
+"character_replacements": Array[Dictionary]([]),
+"id": "34",
+"next_id": "36",
+"notes": "",
+"parent_id": "28",
+"tags": PackedStringArray(),
+"text": "Un type m'as dit de venir vous voir.
+Que je suis le feune homme de la légende et que vous pourriez me dépaner en matériel de chevalier.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Un type m'as dit de venir vous voir.
+Que je suis le feune homme de la légende et que vous pourriez me dépaner en matériel de chevalier.",
+"type": &"dialogue"
+},
+"36": {
+"character": "Coco",
+"character_replacements": Array[Dictionary]([]),
+"id": "36",
+"next_id": "40",
+"notes": "",
+"parent_id": "28",
+"tags": PackedStringArray(),
+"text": "Le jeune homme de la légende????
+HA!HA!HA Toi c'est une blague? 
+Mais bon si la légende dit vrais, celui qui doit nous sauver
+doit aussi me rapporter un présent.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Le jeune homme de la légende????
+HA!HA!HA Toi c'est une blague? 
+Mais bon si la légende dit vrais, celui qui doit nous sauver
+doit aussi me rapporter un présent.",
+"type": &"dialogue"
+},
+"4": {
+"id": "4",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "quest"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "variable",
+"value": "false"
+}]),
+"is_blocking": true
+},
+"next_id": "5",
+"parent_id": "3",
+"type": &"mutation"
+},
+"40": {
+"character": "Hero",
+"character_replacements": Array[Dictionary]([]),
+"id": "40",
+"next_id": "42",
+"notes": "",
+"parent_id": "28",
+"tags": PackedStringArray(),
+"text": "Un présent, mais quoi comme cadeau?",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Un présent, mais quoi comme cadeau?",
+"type": &"dialogue"
+},
+"42": {
+"condition": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "present"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "variable",
+"value": "true"
+}, {
+"type": "colon"
+}])
+},
+"id": "42",
+"next_conditional_id": "54",
+"next_id": "43",
+"next_id_after": "53",
+"type": &"condition"
+},
+"43": {
+"character": "Coco",
+"character_replacements": Array[Dictionary]([]),
+"id": "43",
+"next_id": "44",
+"notes": "",
+"parent_id": "42",
+"tags": PackedStringArray(),
+"text": "Je sais pas un truc qui brille, un peu comme le pendentif que tu a trouvé.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Je sais pas un truc qui brille, un peu comme le pendentif que tu a trouvé.",
+"type": &"dialogue"
+},
+"44": {
+"character": "Hero",
+"character_replacements": Array[Dictionary]([]),
+"id": "44",
+"next_id": "45",
+"notes": "",
+"parent_id": "42",
+"tags": PackedStringArray(),
+"text": "Vous voulez le pendentif, je pensé l'offrir à la princesse.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Vous voulez le pendentif, je pensé l'offrir à la princesse.",
+"type": &"dialogue"
+},
+"45": {
+"character": "Coco",
+"character_replacements": Array[Dictionary]([]),
+"id": "45",
+"next_id": "47",
+"notes": "",
+"parent_id": "42",
+"tags": PackedStringArray(),
+"text": "Si tu veux la clé de la remise, il va falloir me donner le collier.
+Alors tu me le donne?",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Si tu veux la clé de la remise, il va falloir me donner le collier.
+Alors tu me le donne?",
+"type": &"dialogue"
+},
+"47": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "47",
+"next_id": "48",
+"next_id_after": "53",
+"notes": "",
+"parent_id": "42",
+"responses": PackedStringArray("47", "50"),
+"tags": PackedStringArray(),
+"text": "oui",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "oui",
+"type": &"response"
+},
+"48": {
+"id": "48",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "show_pause_menu",
+"type": &"function",
+"value": Array[Array]([])
+}]),
+"is_blocking": true
+},
+"next_id": "49",
+"parent_id": "47",
+"type": &"mutation"
+},
+"49": {
+"id": "49",
+"is_snippet": true,
+"next_id": "65",
+"next_id_after": "53",
+"parent_id": "47",
+"type": &"goto"
+},
+"5": {
+"id": "5",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "present"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "variable",
+"value": "false"
+}]),
+"is_blocking": true
+},
+"next_id": "6",
+"parent_id": "3",
+"type": &"mutation"
+},
+"50": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "50",
+"next_id": "51",
+"next_id_after": "53",
+"notes": "",
+"parent_id": "42",
+"tags": PackedStringArray(),
+"text": "non",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "non",
+"type": &"response"
+},
+"51": {
+"character": "Hero",
+"character_replacements": Array[Dictionary]([]),
+"id": "51",
+"next_id": "52",
+"notes": "",
+"parent_id": "50",
+"tags": PackedStringArray(),
+"text": "Non je le garde, tant pis pour la légende.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Non je le garde, tant pis pour la légende.",
+"type": &"dialogue"
+},
+"52": {
+"character": "Coco",
+"character_replacements": Array[Dictionary]([]),
+"id": "52",
+"next_id": "53",
+"notes": "",
+"parent_id": "50",
+"tags": PackedStringArray(),
+"text": "Sort d'ici bon à rien!!!",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Sort d'ici bon à rien!!!",
+"type": &"dialogue"
+},
+"53": {
+"id": "53",
+"is_snippet": false,
+"next_id": "end",
+"type": &"goto"
+},
+"54": {
+"id": "54",
+"next_conditional_id": "62",
+"next_id": "55",
+"next_id_after": "62",
+"type": &"condition"
+},
+"55": {
+"character": "Coco",
+"character_replacements": Array[Dictionary]([]),
+"id": "55",
+"next_id": "58",
+"notes": "",
+"parent_id": "54",
+"tags": PackedStringArray(),
+"text": "On raconte que dans la grotte au SUD du village
+il y aurait un magnifique pendentif!!!!!
+Rapporte le moi et je t'aiderais dans ta quete.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "On raconte que dans la grotte au SUD du village
+il y aurait un magnifique pendentif!!!!!
+Rapporte le moi et je t'aiderais dans ta quete.",
+"type": &"dialogue"
+},
+"58": {
+"character": "Hero",
+"character_replacements": Array[Dictionary]([]),
+"id": "58",
+"next_id": "59",
+"notes": "",
+"parent_id": "54",
+"tags": PackedStringArray(),
+"text": "Ok, je vais vous le ramener!!!!",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Ok, je vais vous le ramener!!!!",
+"type": &"dialogue"
+},
+"59": {
+"character": "Coco",
+"character_replacements": Array[Dictionary]([]),
+"id": "59",
+"next_id": "60",
+"notes": "",
+"parent_id": "54",
+"tags": PackedStringArray(),
+"text": "fait attention aux monstres quand meme!",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "fait attention aux monstres quand meme!",
+"type": &"dialogue"
+},
+"6": {
+"character": "Coco",
+"character_replacements": Array[Dictionary]([]),
+"id": "6",
+"next_id": "7",
+"notes": "",
+"parent_id": "3",
+"tags": PackedStringArray(),
+"text": "Laisse moi tranquille je n'ai plus rien à te dire.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Laisse moi tranquille je n'ai plus rien à te dire.",
+"type": &"dialogue"
+},
+"60": {
+"id": "60",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "quest"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "variable",
+"value": "true"
+}]),
+"is_blocking": true
+},
+"next_id": "62",
+"parent_id": "54",
+"type": &"mutation"
+},
+"62": {
+"id": "62",
+"is_snippet": false,
+"next_id": "end",
+"type": &"goto"
+},
+"63": {
+"id": "63",
+"next_id": "65",
+"text": "continu",
+"type": &"title"
+},
+"65": {
+"character": "Coco",
+"character_replacements": Array[Dictionary]([]),
+"id": "65",
+"next_id": "67",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "Merci il est magnifique!!!!
+Tiens voila la clé, prend ce que tu veux. Et bonne chance!!",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Merci il est magnifique!!!!
+Tiens voila la clé, prend ce que tu veux. Et bonne chance!!",
+"type": &"dialogue"
+},
+"67": {
+"id": "67",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "nb_keys"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "number",
+"value": 1
+}]),
+"is_blocking": true
+},
+"next_id": "68",
+"type": &"mutation"
+},
+"68": {
+"id": "68",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "small_key"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "variable",
+"value": "true"
+}]),
+"is_blocking": true
+},
+"next_id": "69",
+"type": &"mutation"
+},
+"69": {
+"id": "69",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "accept_mamie_coco"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "yes"
+}]),
+"is_blocking": true
+},
+"next_id": "71",
+"type": &"mutation"
+},
+"7": {
+"id": "7",
+"is_snippet": false,
+"next_id": "end!",
+"parent_id": "3",
+"type": &"goto"
+},
+"71": {
+"id": "71",
+"is_snippet": false,
+"next_id": "end",
+"type": &"goto"
+},
+"9": {
+"condition": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "quest"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "variable",
+"value": "true"
+}, {
+"type": "colon"
+}])
+},
+"id": "9",
+"next_conditional_id": "28",
+"next_id": "10",
+"next_id_after": "23",
+"type": &"condition"
+}
+}
+raw_text = "~ start
+
+if accept_mamie_coco == \"yes\":
+	set quest = false
+	set present = false
+	Coco: Laisse moi tranquille je n'ai plus rien à te dire.
+	=> END!
+
+if quest == true:
+	Coco: Alors tu as trouvé mon trésor???
+	- oui
+		if present == true and quest == true:
+			Hero: Voila tenez il est à vous.
+			Coco: Merci il est magnifique!!!!
+				Tiens voila la clé, prend ce que tu veux. Et bonne chance!!
+			set nb_keys = 1
+			set small_key = true
+			set accept_mamie_coco = \"yes\"
+		=> END!
+		else:
+			Coco: Tu essais de m'arrnaquer!!!!! 
+				Je vois bien que tu n'as rien trouvé, vas chercher mon pendentif si tu veux continuer ton aventure!!
+=> END!
+	- non
+			Hero: Non, je repart à ça recherche!!!
+			Coco: Fait vite les monstres sont de plus en plus nombreux!!!!
+=> END!
+else:
+	Hero: salut!!
+	Coco: Bonjour
+	Coco: Qu'est-ce que tu fais dans ma maison!!?
+		Tu est venu pour me voler, sort de là j'aime pas bien les gens!!!
+		Surtout les petits chenappants comme toi!!!!
+	Hero: Un type m'as dit de venir vous voir.
+		Que je suis le feune homme de la légende et que vous pourriez me dépaner en matériel de chevalier.
+	Coco: Le jeune homme de la légende????
+		HA!HA!HA Toi c'est une blague? 
+		Mais bon si la légende dit vrais, celui qui doit nous sauver
+		doit aussi me rapporter un présent.
+	Hero: Un présent, mais quoi comme cadeau?
+
+if present == true:
+	Coco: Je sais pas un truc qui brille, un peu comme le pendentif que tu a trouvé.
+	Hero: Vous voulez le pendentif, je pensé l'offrir à la princesse.
+	Coco: Si tu veux la clé de la remise, il va falloir me donner le collier.
+		Alors tu me le donne?
+	- oui
+		do show_pause_menu()
+		=>< continu
+	- non
+		Hero: Non je le garde, tant pis pour la légende.
+		Coco: Sort d'ici bon à rien!!!
+=> END
+else:
+	Coco: On raconte que dans la grotte au SUD du village
+		il y aurait un magnifique pendentif!!!!!
+		Rapporte le moi et je t'aiderais dans ta quete.
+	Hero: Ok, je vais vous le ramener!!!!
+	Coco: fait attention aux monstres quand meme!
+	set quest = true
+	
+=> END
+~ continu
+
+Coco: Merci il est magnifique!!!!
+	Tiens voila la clé, prend ce que tu veux. Et bonne chance!!
+set nb_keys = 1
+set small_key = true
+set accept_mamie_coco = \"yes\"
+
+=> END"
+metadata/dialogue_manager_version = "2.41.4"

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Inventory_Data" load_steps=2 format=3 uid="uid://b00m7abjnxnd"]
+
+[ext_resource type="Script" path="res://Scenes/HUD/Paused_Menu/Inventory/Script/Inventory_data.gd" id="1_nhhkr"]
+
+[resource]
+script = ExtResource("1_nhhkr")
+weapon_slots = Array[Resource("res://Scenes/HUD/Paused_Menu/Inventory/Script/Slot_Data.gd")]([null, null, null, null, null, null, null, null, null, null])
+potion_slots = Array[Resource("res://Scenes/HUD/Paused_Menu/Inventory/Script/Slot_Data.gd")]([null, null, null, null])
+equipement_slots = Array[Resource("res://Scenes/HUD/Paused_Menu/Inventory/Script/Slot_Data.gd")]([null, null, null])
+quest_slots = Array[Resource("res://Scenes/HUD/Paused_Menu/Inventory/Script/Slot_Data.gd")]([null, null, null, null, null, null])

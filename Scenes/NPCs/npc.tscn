@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://dwgapkgkfoulh"]
+
+[ext_resource type="Texture2D" uid="uid://ck0b6lega7iem" path="res://Art/Characters/NPC/NPC_1.png" id="1_1dac0"]
+[ext_resource type="PackedScene" uid="uid://b0hd1krpyym6b" path="res://Scenes/Over_Lap/actionable.tscn" id="2_rdcph"]
+[ext_resource type="Resource" uid="uid://bxck57ok46w0b" path="res://Dialogue/main.dialogue" id="3_1ldx8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pg5w7"]
+radius = 24.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y0bmg"]
+radius = 40.0
+
+[node name="NPC" type="CharacterBody2D"]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -24)
+shape = SubResource("CircleShape2D_pg5w7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -32)
+texture = ExtResource("1_1dac0")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Actionable" parent="." instance=ExtResource("2_rdcph")]
+position = Vector2(0, -8)
+dialogue_resource = ExtResource("3_1ldx8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Actionable"]
+shape = SubResource("CircleShape2D_y0bmg")

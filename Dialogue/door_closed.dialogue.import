@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://cea0awdo6qvqb"
+path="res://.godot/imported/door_closed.dialogue-86f90120a5219d778dd666db3454521b.tres"
+
+[deps]
+
+source_file="res://Dialogue/door_closed.dialogue"
+dest_files=["res://.godot/imported/door_closed.dialogue-86f90120a5219d778dd666db3454521b.tres"]
+
+[params]
+
+defaults=true

@@ -1,0 +1,230 @@
+[gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_6mry4"]
+
+[resource]
+script = ExtResource("1_6mry4")
+using_states = PackedStringArray()
+titles = {
+"start": "4"
+}
+character_names = PackedStringArray("Hero")
+first_title = "4"
+lines = {
+"1": {
+"id": "1",
+"next_id": "4",
+"text": "start",
+"type": &"title"
+},
+"10": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "10",
+"next_id": "11",
+"next_id_after": "19",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "non",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "non",
+"type": &"response"
+},
+"11": {
+"character": "Hero",
+"character_replacements": Array[Dictionary]([]),
+"id": "11",
+"next_id": "13",
+"notes": "",
+"parent_id": "10",
+"tags": PackedStringArray(),
+"text": "Je vais quand meme pas rester dans le noir?
+Bon j'allume ma lampe?",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Je vais quand meme pas rester dans le noir?
+Bon j'allume ma lampe?",
+"type": &"dialogue"
+},
+"13": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "13",
+"next_id": "14",
+"next_id_after": "19",
+"notes": "",
+"parent_id": "10",
+"responses": PackedStringArray("13", "15"),
+"tags": PackedStringArray(),
+"text": "oui",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "oui",
+"type": &"response"
+},
+"14": {
+"id": "14",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "active_lantern"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "variable",
+"value": "true"
+}]),
+"is_blocking": true
+},
+"next_id": "19",
+"parent_id": "13",
+"type": &"mutation"
+},
+"15": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "15",
+"next_id": "16",
+"next_id_after": "19",
+"notes": "",
+"parent_id": "10",
+"tags": PackedStringArray(),
+"text": "non",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "non",
+"type": &"response"
+},
+"16": {
+"character": "Hero",
+"character_replacements": Array[Dictionary]([]),
+"id": "16",
+"next_id": "17",
+"notes": "",
+"parent_id": "15",
+"tags": PackedStringArray(),
+"text": "Ne fait pas l'enfant allume moi cette lampe!!!",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Ne fait pas l'enfant allume moi cette lampe!!!",
+"type": &"dialogue"
+},
+"17": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "17",
+"next_id": "18",
+"next_id_after": "19",
+"notes": "",
+"parent_id": "15",
+"responses": PackedStringArray("17"),
+"tags": PackedStringArray(),
+"text": "oui",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "oui",
+"type": &"response"
+},
+"18": {
+"id": "18",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "active_lantern"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "variable",
+"value": "true"
+}]),
+"is_blocking": true
+},
+"next_id": "19",
+"parent_id": "17",
+"type": &"mutation"
+},
+"19": {
+"id": "19",
+"is_snippet": false,
+"next_id": "end",
+"type": &"goto"
+},
+"4": {
+"character": "Hero",
+"character_replacements": Array[Dictionary]([]),
+"id": "4",
+"next_id": "7",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "Oulala!!!!
+On y voit pas plus loin qu'à l'aveuglette!!!!
+je ferais mieux d'allumer ma lampe.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Oulala!!!!
+On y voit pas plus loin qu'à l'aveuglette!!!!
+je ferais mieux d'allumer ma lampe.",
+"type": &"dialogue"
+},
+"7": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "7",
+"next_id": "8",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "ALLUMER LA LAMPE?",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "ALLUMER LA LAMPE?",
+"type": &"dialogue"
+},
+"8": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "8",
+"next_id": "9",
+"next_id_after": "19",
+"notes": "",
+"responses": PackedStringArray("8", "10"),
+"tags": PackedStringArray(),
+"text": "oui",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "oui",
+"type": &"response"
+},
+"9": {
+"id": "9",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "active_lantern"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "variable",
+"value": "true"
+}]),
+"is_blocking": true
+},
+"next_id": "19",
+"parent_id": "8",
+"type": &"mutation"
+}
+}
+raw_text = "~ start
+
+
+Hero: Oulala!!!! 
+	On y voit pas plus loin qu'à l'aveuglette!!!!
+	je ferais mieux d'allumer ma lampe.
+ALLUMER LA LAMPE?
+- oui
+	set active_lantern = true
+- non
+	Hero: Je vais quand meme pas rester dans le noir?
+		Bon j'allume ma lampe?
+	- oui
+		set active_lantern = true
+	- non
+		Hero: Ne fait pas l'enfant allume moi cette lampe!!!
+		- oui
+			set active_lantern = true
+=> END"
+metadata/dialogue_manager_version = "2.41.3"

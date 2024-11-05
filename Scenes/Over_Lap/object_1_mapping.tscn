@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://xvcx5yuukm1d"]
+
+[ext_resource type="Script" path="res://object1_mapping.gd" id="1_iaf6c"]
+
+[node name="Object1_Mapping" type="Node"]
+script = ExtResource("1_iaf6c")

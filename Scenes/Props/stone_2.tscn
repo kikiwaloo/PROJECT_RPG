@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://s6jhictldyfl"]
+
+[ext_resource type="Texture2D" uid="uid://dv0o07q05g1o2" path="res://Scenes/Props/Sprite/Props.png" id="1_ingxy"]
+[ext_resource type="PackedScene" uid="uid://bu56nbjojd4mg" path="res://Scenes/Interact/Throwable/Throwable.tscn" id="2_xl8b8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_25kmg"]
+radius = 16.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3fhw7"]
+radius = 16.0
+
+[node name="Stone_2" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ingxy")
+hframes = 16
+vframes = 3
+frame = 11
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+y_sort_enabled = true
+shape = SubResource("CircleShape2D_25kmg")
+
+[node name="Throwable" parent="." instance=ExtResource("2_xl8b8")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Throwable"]
+shape = SubResource("CircleShape2D_3fhw7")
+debug_color = Color(0, 0.65098, 0.0666667, 0)

@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://diptik0hminw5"
+path="res://.godot/imported/Marchant.dialogue-5088903c8a1235e475002f1fc1d99588.tres"
+
+[deps]
+
+source_file="res://Dialogue/Marchant.dialogue"
+dest_files=["res://.godot/imported/Marchant.dialogue-5088903c8a1235e475002f1fc1d99588.tres"]
+
+[params]
+
+defaults=true

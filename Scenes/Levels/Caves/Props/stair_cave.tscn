@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://cgggjp60sk4pg"]
+
+[ext_resource type="AudioStream" uid="uid://b1pbwrwin4eoe" path="res://Art/Audio/LTTP_Stairs_Up.wav" id="1_liynh"]
+[ext_resource type="Script" path="res://Scenes/Levels/Dongeons/Dungeons_Props/stairs.gd" id="1_mhyj8"]
+[ext_resource type="AudioStream" uid="uid://d0pum67d7a7b7" path="res://Art/Audio/LTTP_Stairs_Down.wav" id="2_pxo48"]
+[ext_resource type="Texture2D" uid="uid://bfx7t4rp4o1ux" path="res://Art/Tile_Map/Cave/Sprite_Stair.png" id="2_ycra4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dv2x5"]
+size = Vector2(33, 58)
+
+[node name="Stair_Cave" type="Node2D"]
+z_index = -1
+script = ExtResource("1_mhyj8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ycra4")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_dv2x5")
+
+[node name="Stair_Up" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_liynh")
+
+[node name="Stair_Down" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_pxo48")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

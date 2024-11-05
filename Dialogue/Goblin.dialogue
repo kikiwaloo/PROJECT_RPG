@@ -1,0 +1,35 @@
+~ start
+
+if diag_end == true:
+	Goblin: ........
+	=> END!
+else:
+	Goblin: Halte là petit moucheron!!!!
+		Où crois tu aller comme ça?
+		On ne passe pas, je suis le gardien 
+		et personne ne passe!!!!
+	Hero: Bonjour, déjà!!!!!
+		Je pense que c'est la moindre des pollitesse.
+	Goblin: Ha oui pardon.....
+		Bonjour jeune inconsiant.
+		Le passage est interdit au personnes
+		ne possedant pas le mot de passe.
+if MDP == false:
+	Goblin: Et vu t'as tète, tu ne le connais pas 
+		c'est sur!!!
+		HA!HA!HA!HA!HA
+	Goblin: Alors du vent, va voir ailleur
+		misérable moucheron.
+else:
+	Hero: Et oui je sais!!!
+		J'ai eu vent de cette épreuve.
+	Goblin: Ha bien!!!!
+		Tu connais donc le mot de passe?
+		Quel est-il?
+	Hero: "Il faut raffraichir les maquignons"
+	Goblin: Mais comment c'est possible!!!!
+		Tu as trouvé, je suis obligé de te laissé passer.
+		Bon courage dans le chateau!!!!!!
+	set quest_goblin = true
+	set diag_end = true
+=> END

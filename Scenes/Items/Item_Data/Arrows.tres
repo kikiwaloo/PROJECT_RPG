@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://11we36fysqqf"]
+
+[ext_resource type="Script" path="res://Scenes/Items/Items_Effect/Arrow_Effect.gd" id="1_n5aei"]
+[ext_resource type="Script" path="res://Scenes/Items/Script/Item_Data.gd" id="1_sunfm"]
+[ext_resource type="Texture2D" uid="uid://bpssqewy6ktd5" path="res://Art/Items/PickUp/Arrow.png" id="2_uy66p"]
+
+[sub_resource type="Resource" id="Resource_ll24y"]
+script = ExtResource("1_n5aei")
+quantity = 5
+price = 20
+use_description = ""
+
+[resource]
+script = ExtResource("1_sunfm")
+type = 0
+name = "Arrows"
+description = ""
+texture = ExtResource("2_uy66p")
+value = 1
+effects = Array[Resource("res://Scenes/Items/Items_Effect/Items_Effet.gd")]([SubResource("Resource_ll24y")])

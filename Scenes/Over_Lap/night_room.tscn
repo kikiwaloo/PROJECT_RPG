@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://cand3lh18yyw7"]
+
+[node name="Night_room" type="CanvasModulate"]
+modulate = Color(0.0705882, 0.0705882, 0.117647, 1)
+color = Color(0.0343411, 0.0342833, 0.0995758, 1)

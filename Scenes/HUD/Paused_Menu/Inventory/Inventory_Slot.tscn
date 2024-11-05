@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://b1mufs1xygmal"]
+
+[ext_resource type="Texture2D" uid="uid://dmk5b4ig0w5cm" path="res://Art/Items/PickUp/items.png" id="1_fk53h"]
+[ext_resource type="Script" path="res://Scenes/HUD/Paused_Menu/Inventory/Inventory_Slot_UI.gd" id="1_oqcnw"]
+[ext_resource type="Texture2D" uid="uid://b2o34cukan4sg" path="res://Art/Items/Inventory/BackGround.png" id="2_bjeud"]
+[ext_resource type="Texture2D" uid="uid://dmx6msghmfqaa" path="res://Art/Items/Inventory/Cursor.png" id="3_x6uud"]
+[ext_resource type="AudioStream" uid="uid://dl1py1qcbn6j0" path="res://Art/Audio/LTTP_Menu_Select.wav" id="5_bc1lt"]
+[ext_resource type="AudioStream" uid="uid://dkbt7lhrb3f1u" path="res://Art/Audio/LTTP_Menu_Cursor.wav" id="6_exkwr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fcyhx"]
+atlas = ExtResource("1_fk53h")
+region = Rect2(0, 0, 32, 32)
+
+[node name="InventorySlot" type="Button"]
+custom_minimum_size = Vector2(32, 32)
+offset_right = 32.0
+offset_bottom = 32.0
+mouse_filter = 1
+script = ExtResource("1_oqcnw")
+
+[node name="BackGround" type="Sprite2D" parent="."]
+texture = ExtResource("2_bjeud")
+centered = false
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+texture = SubResource("AtlasTexture_fcyhx")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 31.0
+offset_bottom = 22.0
+theme_override_font_sizes/font_size = 8
+text = "99"
+horizontal_alignment = 2
+
+[node name="Cursor" type="Sprite2D" parent="."]
+texture = ExtResource("3_x6uud")
+centered = false
+
+[node name="Select_Item" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_bc1lt")
+
+[node name="Cursor_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_exkwr")

@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://dra7q7vorrbmp"
+path="res://.godot/imported/fou_npc.dialogue-2df13fb909d1fbcb45920c79408859f0.tres"
+
+[deps]
+
+source_file="res://Dialogue/fou_npc.dialogue"
+dest_files=["res://.godot/imported/fou_npc.dialogue-2df13fb909d1fbcb45920c79408859f0.tres"]
+
+[params]
+
+defaults=true

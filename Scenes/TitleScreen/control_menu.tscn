@@ -1,0 +1,141 @@
+[gd_scene load_steps=10 format=3 uid="uid://sth5xfts7fw7"]
+
+[ext_resource type="FontFile" uid="uid://cqluqgfb6mw06" path="res://Art/Font/nintendo-nes-font.ttf" id="1_odm10"]
+[ext_resource type="Script" path="res://Scenes/TitleScreen/control_menu.gd" id="2_1snni"]
+[ext_resource type="Texture2D" uid="uid://cyjmds1n02aph" path="res://Art/Title_Screen/Control_mode.png" id="2_ecqlx"]
+[ext_resource type="AudioStream" uid="uid://bepwuboqyj00k" path="res://Art/Audio/02. The Goddess Appears.mp3" id="3_jmk30"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5y2x2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_avke5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ugmwb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_176s5"]
+
+[sub_resource type="Theme" id="Theme_k7gvk"]
+default_font = ExtResource("1_odm10")
+default_font_size = 10
+Button/colors/font_focus_color = Color(0.94902, 0.94902, 0.0235294, 1)
+Button/styles/disabled = SubResource("StyleBoxEmpty_5y2x2")
+Button/styles/focus = SubResource("StyleBoxEmpty_avke5")
+Button/styles/hover = SubResource("StyleBoxEmpty_ugmwb")
+Button/styles/normal = SubResource("StyleBoxEmpty_176s5")
+
+[node name="Control_Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_k7gvk")
+script = ExtResource("2_1snni")
+music = ExtResource("3_jmk30")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.145098, 0.0784314, 0.235294, 1)
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 16.0
+offset_bottom = 47.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.168627, 0.968627, 0.956863, 1)
+theme_override_font_sizes/font_size = 30
+text = "CONTROL MENU"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 40)
+texture = ExtResource("2_ecqlx")
+centered = false
+
+[node name="Label" type="Label" parent="."]
+offset_left = 520.0
+offset_top = 264.0
+offset_right = 696.0
+offset_bottom = 287.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "INTERACT
+"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 464.0
+offset_top = 152.0
+offset_right = 640.0
+offset_bottom = 175.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "SWORD ATTACK
+"
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 520.0
+offset_top = 192.0
+offset_right = 696.0
+offset_bottom = 227.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "SECOND
+  WEAPON
+"
+
+[node name="Label4" type="Label" parent="."]
+offset_left = 184.0
+offset_top = 296.0
+offset_right = 360.0
+offset_bottom = 319.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "INVENTORY
+"
+
+[node name="Label5" type="Label" parent="."]
+offset_left = 24.0
+offset_top = 256.0
+offset_right = 200.0
+offset_bottom = 291.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "MOVE PLAYER
+"
+
+[node name="Label6" type="Label" parent="."]
+offset_left = 464.0
+offset_top = 88.0
+offset_right = 640.0
+offset_bottom = 111.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "ROLLING
+"
+
+[node name="Label7" type="Label" parent="."]
+offset_left = 368.0
+offset_top = 296.0
+offset_right = 544.0
+offset_bottom = 319.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "PAUSE MENU
+"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 568.0
+offset_top = 319.0
+offset_right = 616.0
+offset_bottom = 338.0
+text = "BACK"
+flat = true

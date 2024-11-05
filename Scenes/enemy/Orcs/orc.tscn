@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgedlhj7is5oj"]
+
+[ext_resource type="PackedScene" uid="uid://c3mnnk1ywo6ge" path="res://Scenes/enemy/Goblin/Goblin.tscn" id="1_0k0jg"]
+[ext_resource type="Texture2D" uid="uid://yqmy06mwu3mq" path="res://Art/Characters/enemys/Orc_sriteSheet.png" id="2_me52t"]
+
+[node name="Orc" instance=ExtResource("1_0k0jg")]
+
+[node name="Sprite2D" parent="." index="3"]
+texture = ExtResource("2_me52t")

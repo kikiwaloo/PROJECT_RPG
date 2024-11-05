@@ -1,0 +1,253 @@
+[gd_scene load_steps=15 format=3 uid="uid://vv37x7waegnk"]
+
+[ext_resource type="Script" path="res://Scenes/Interact/Chest_Interact/Interact_Chest.gd" id="1_emwho"]
+[ext_resource type="Resource" uid="uid://dopmsqg2okb7h" path="res://Dialogue/Sword.dialogue" id="2_6nlqs"]
+[ext_resource type="Texture2D" uid="uid://d2lg0ywn7xwie" path="res://Art/Chest/treasure-chest.png" id="2_hirkc"]
+[ext_resource type="Texture2D" uid="uid://dmk5b4ig0w5cm" path="res://Art/Items/PickUp/items.png" id="3_7cqhk"]
+[ext_resource type="AudioStream" uid="uid://dqoi8g87b2dtn" path="res://Art/Audio/LTTP_ItemFanfare.wav" id="4_w24kn"]
+[ext_resource type="PackedScene" uid="uid://c064xhq6au0sf" path="res://Scenes/Over_Lap/Persistence_Data_Handler/PersistenceDataHandler.tscn" id="5_2yptx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iw6j7"]
+atlas = ExtResource("3_7cqhk")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="Animation" id="Animation_jaxam"]
+resource_name = "Closed"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Item_Sprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_7jtei"]
+resource_name = "Open_Chest"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Item_Sprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer2D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_w24kn")
+}],
+"times": PackedFloat32Array(0.1)
+}
+tracks/2/use_blend = true
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Item_Sprite:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1, 0.3, 0.5, 1),
+"transitions": PackedFloat32Array(0.5, -2, 2, 1),
+"update": 0,
+"values": [Vector2(0, -13), Vector2(0, -60), Vector2(0, -52), Vector2(0, -52)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Item_Sprite:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.2, 0.3, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(2, 2, 2, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_76o8v"]
+resource_name = "Opened"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Item_Sprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_pfwt0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Item_Sprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Item_Sprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -13)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Item_Sprite:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(2, 2, 2, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tbv4r"]
+_data = {
+"Closed": SubResource("Animation_jaxam"),
+"Open_Chest": SubResource("Animation_7jtei"),
+"Opened": SubResource("Animation_76o8v"),
+"RESET": SubResource("Animation_pfwt0")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iwhi2"]
+size = Vector2(30, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ig81w"]
+size = Vector2(30, 20)
+
+[node name="InteractChest" type="Node2D"]
+process_mode = 3
+y_sort_enabled = true
+script = ExtResource("1_emwho")
+dialogue_resource = ExtResource("2_6nlqs")
+dialogue_start = "sword"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -11)
+texture = ExtResource("2_hirkc")
+hframes = 2
+
+[node name="Item_Sprite" type="Sprite2D" parent="."]
+modulate = Color(2, 2, 2, 1)
+z_index = 1
+position = Vector2(0, -13)
+texture = SubResource("AtlasTexture_iw6j7")
+
+[node name="Label" type="Label" parent="Item_Sprite"]
+offset_left = 8.0
+offset_top = -8.0
+offset_right = 48.0
+offset_bottom = 15.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 10
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_tbv4r")
+}
+autoplay = "Closed"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 4.5)
+shape = SubResource("RectangleShape2D_iwhi2")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_ig81w")
+debug_color = Color(0.156863, 0.631373, 0.356863, 0.666667)
+
+[node name="Is_Open" parent="." instance=ExtResource("5_2yptx")]

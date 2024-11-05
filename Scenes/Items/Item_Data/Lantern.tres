@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://0n8jtq7qorgc"]
+
+[ext_resource type="Script" path="res://Scenes/Items/Items_Effect/Lantern.gd" id="1_8j3rp"]
+[ext_resource type="Script" path="res://Scenes/Items/Script/Item_Data.gd" id="1_h3rfy"]
+[ext_resource type="Texture2D" uid="uid://d2wrjvd4l6tug" path="res://Art/Items/PickUp/Lanterne.png" id="2_a5opd"]
+
+[sub_resource type="Resource" id="Resource_7grp1"]
+script = ExtResource("1_8j3rp")
+use_description = ""
+
+[resource]
+script = ExtResource("1_h3rfy")
+type = 1
+name = "Lantern"
+description = "J'aurais mons peur du noir."
+texture = ExtResource("2_a5opd")
+value = 1
+effects = Array[Resource("res://Scenes/Items/Items_Effect/Items_Effet.gd")]([SubResource("Resource_7grp1")])

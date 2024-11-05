@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://dkb1nunuovbxw"]
+
+[ext_resource type="Script" path="res://Scenes/Items/Script/Item_Data.gd" id="1_f88mv"]
+[ext_resource type="Texture2D" uid="uid://bh50lgbrq0sok" path="res://Art/Items/PickUp/Full_Heart.png" id="2_ec844"]
+
+[resource]
+script = ExtResource("1_f88mv")
+type = 0
+name = "Big_Heart"
+description = ""
+texture = ExtResource("2_ec844")
+value = 1
+effects = Array[Resource("res://Scenes/Items/Items_Effect/Items_Effet.gd")]([])

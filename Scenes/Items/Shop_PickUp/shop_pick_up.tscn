@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://nymd2gl8xweu"]
+
+[ext_resource type="Texture2D" uid="uid://cb0x0r3rq6vdc" path="res://Art/Items/PickUp/Potion_Magie.png" id="1_1fcnr"]
+[ext_resource type="Script" path="res://Scenes/Items/Shop_PickUp/shop_pick_up.gd" id="1_c10is"]
+[ext_resource type="AudioStream" uid="uid://bis84p68cdmr7" path="res://Art/Audio/LTTP_Error.wav" id="3_0wvq1"]
+[ext_resource type="FontFile" uid="uid://cqluqgfb6mw06" path="res://Art/Font/nintendo-nes-font.ttf" id="3_6djom"]
+[ext_resource type="Resource" uid="uid://diptik0hminw5" path="res://Dialogue/Marchant.dialogue" id="6_3coov"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_axxfl"]
+radius = 12.5786
+
+[node name="Shop_Pick_Up" type="Node2D"]
+script = ExtResource("1_c10is")
+dialogue_resource = ExtResource("6_3coov")
+dialogue_start = "marchant"
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_axxfl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_1fcnr")
+
+[node name="Price" type="Label" parent="Sprite2D"]
+offset_left = -19.7883
+offset_top = 11.2599
+offset_right = 20.2117
+offset_bottom = 34.2599
+theme_override_fonts/font = ExtResource("3_6djom")
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+
+[node name="Quantity" type="Label" parent="Sprite2D"]
+offset_left = 4.02702
+offset_top = -13.2433
+offset_right = 28.027
+offset_bottom = -4.24329
+theme_override_fonts/font = ExtResource("3_6djom")
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_0wvq1")

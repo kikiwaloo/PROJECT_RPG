@@ -1,0 +1,71 @@
+~ start
+
+if accept_mamie_coco == "yes":
+	set quest = false
+	set present = false
+	Coco: Laisse moi tranquille je n'ai plus rien à te dire.
+	=> END!
+
+if quest == true:
+	Coco: Alors tu as trouvé mon trésor???
+	- oui
+		if present == true and quest == true:
+			Hero: Voila tenez il est à vous.
+			Coco: Merci il est magnifique!!!!
+				Tiens voila la clé, prend ce que tu veux. Et bonne chance!!
+			set nb_keys = 1
+			set small_key = true
+			set accept_mamie_coco = "yes"
+		=> END!
+		else:
+			Coco: Tu essais de m'arrnaquer!!!!! 
+				Je vois bien que tu n'as rien trouvé, vas chercher mon pendentif si tu veux continuer ton aventure!!
+=> END!
+	- non
+			Hero: Non, je repart à ça recherche!!!
+			Coco: Fait vite les monstres sont de plus en plus nombreux!!!!
+=> END!
+else:
+	Hero: salut!!
+	Coco: Bonjour
+	Coco: Qu'est-ce que tu fais dans ma maison!!?
+		Tu est venu pour me voler, sort de là j'aime pas bien les gens!!!
+		Surtout les petits chenappants comme toi!!!!
+	Hero: Un type m'as dit de venir vous voir.
+		Que je suis le feune homme de la légende et que vous pourriez me dépaner en matériel de chevalier.
+	Coco: Le jeune homme de la légende????
+		HA!HA!HA Toi c'est une blague? 
+		Mais bon si la légende dit vrais, celui qui doit nous sauver
+		doit aussi me rapporter un présent.
+	Hero: Un présent, mais quoi comme cadeau?
+
+if present == true:
+	Coco: Je sais pas un truc qui brille, un peu comme le pendentif que tu a trouvé.
+	Hero: Vous voulez le pendentif, je pensé l'offrir à la princesse.
+	Coco: Si tu veux la clé de la remise, il va falloir me donner le collier.
+		Alors tu me le donne?
+	- oui
+		do show_pause_menu()
+		=>< continu
+	- non
+		Hero: Non je le garde, tant pis pour la légende.
+		Coco: Sort d'ici bon à rien!!!
+=> END
+else:
+	Coco: On raconte que dans la grotte au SUD du village
+		il y aurait un magnifique pendentif!!!!!
+		Rapporte le moi et je t'aiderais dans ta quete.
+	Hero: Ok, je vais vous le ramener!!!!
+	Coco: fait attention aux monstres quand meme!
+	set quest = true
+	
+=> END
+~ continu
+
+Coco: Merci il est magnifique!!!!
+	Tiens voila la clé, prend ce que tu veux. Et bonne chance!!
+set nb_keys = 1
+set small_key = true
+set accept_mamie_coco = "yes"
+
+=> END

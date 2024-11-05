@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://x2cjfenmffnq"]
+
+[ext_resource type="Script" path="res://Scenes/TitleScreen/splash_screen_manager.gd" id="1_owdgx"]
+[ext_resource type="PackedScene" uid="uid://dldeavc22qlvh" path="res://Scenes/TitleScreen/first_screen.tscn" id="2_r62ft"]
+[ext_resource type="PackedScene" uid="uid://e8ul2y8hvm22" path="res://Scenes/TitleScreen/title_screen.tscn" id="2_uamg7"]
+[ext_resource type="PackedScene" uid="uid://b6lm0occ7485n" path="res://Scenes/Levels/player_spawn.tscn" id="4_eqnjf"]
+[ext_resource type="PackedScene" uid="uid://bqr32vsd7ock3" path="res://Scenes/TitleScreen/second_screen.tscn" id="5_rhxyc"]
+
+[node name="SplashScreenManager" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_owdgx")
+_move_to = ExtResource("2_uamg7")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Player_Spawn" parent="." instance=ExtResource("4_eqnjf")]
+position = Vector2(320, 180)
+
+[node name="Control" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="First_Screen" parent="Control" instance=ExtResource("2_r62ft")]
+layout_mode = 2
+time = 5.0
+
+[node name="Second_screen" parent="Control" instance=ExtResource("5_rhxyc")]
+layout_mode = 2

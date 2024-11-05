@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=6 format=3 uid="uid://d0d8yb3mt2lbb"]
+
+[ext_resource type="Script" path="res://Scenes/Items/Items_Effect/quarter_heart.gd" id="1_67u8f"]
+[ext_resource type="AudioStream" uid="uid://b5mst0x5q3e4u" path="res://Art/Audio/LTTP_Get_HeartPiece(1).wav" id="1_d5uwq"]
+[ext_resource type="Script" path="res://Scenes/Items/Script/Item_Data.gd" id="1_tcmn6"]
+[ext_resource type="Texture2D" uid="uid://bqp7qyx06c4x6" path="res://Art/Items/PickUp/Quarter_Heart.png" id="2_x728p"]
+
+[sub_resource type="Resource" id="Resource_1ips7"]
+script = ExtResource("1_67u8f")
+audio = ExtResource("1_d5uwq")
+use_description = ""
+
+[resource]
+script = ExtResource("1_tcmn6")
+type = 0
+name = "Quarter_Heart"
+description = ""
+texture = ExtResource("2_x728p")
+value = 1
+effects = Array[Resource("res://Scenes/Items/Items_Effect/Items_Effet.gd")]([SubResource("Resource_1ips7")])

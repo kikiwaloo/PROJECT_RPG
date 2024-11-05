@@ -1,0 +1,4 @@
+ItemsEffect
+ItemData
+NPCResource
+Inventory_Data

@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://sttslo501bm1"]
+
+[ext_resource type="Texture2D" uid="uid://b5fdnrlic45lv" path="res://Art/Items/Projectiles/Fleche-sheet.png" id="1_7wult"]
+[ext_resource type="Script" path="res://Scenes/Projectiles/Projectile.gd" id="1_iu8xa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wsq3y"]
+size = Vector2(15, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yvck0"]
+atlas = ExtResource("1_7wult")
+region = Rect2(0, 0, 17, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hd4hy"]
+atlas = ExtResource("1_7wult")
+region = Rect2(17, 0, 17, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_25rr1"]
+atlas = ExtResource("1_7wult")
+region = Rect2(34, 0, 17, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mptob"]
+atlas = ExtResource("1_7wult")
+region = Rect2(51, 0, 17, 9)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_30v3c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yvck0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hd4hy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_25rr1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mptob")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Arrow" type="Area2D"]
+collision_layer = 8
+collision_mask = 272
+monitorable = false
+script = ExtResource("1_iu8xa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_wsq3y")
+debug_color = Color(0.942285, 0.226431, 0.216861, 0.42)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_30v3c")
+autoplay = "default"

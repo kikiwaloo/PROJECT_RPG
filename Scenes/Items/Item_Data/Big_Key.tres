@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://c2x1gbod1segl"]
+
+[ext_resource type="Script" path="res://Scenes/Items/Script/Item_Data.gd" id="1_uffl3"]
+[ext_resource type="Script" path="res://Scenes/Items/Items_Effect/boss_key_effect.gd" id="1_y7qxf"]
+[ext_resource type="Texture2D" uid="uid://cca21qhrg0kev" path="res://Art/Items/PickUp/Boss_Key.png" id="3_g2qdi"]
+
+[sub_resource type="Resource" id="Resource_usbv0"]
+script = ExtResource("1_y7qxf")
+use_description = ""
+
+[resource]
+script = ExtResource("1_uffl3")
+type = 5
+name = "Big_Key"
+description = ""
+texture = ExtResource("3_g2qdi")
+value = 1
+effects = Array[Resource("res://Scenes/Items/Items_Effect/Items_Effet.gd")]([SubResource("Resource_usbv0")])

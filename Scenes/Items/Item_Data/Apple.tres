@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=7 format=3 uid="uid://d4yif7w640xr"]
+
+[ext_resource type="AudioStream" uid="uid://csd82jbt0sjxe" path="res://Art/Audio/LTTP_Item.wav" id="1_24pd8"]
+[ext_resource type="Script" path="res://Scenes/Items/Items_Effect/Item_Effect_Heal.gd" id="2_hka8n"]
+[ext_resource type="Script" path="res://Scenes/Items/Script/Item_Data.gd" id="3_7men3"]
+[ext_resource type="Texture2D" uid="uid://dmk5b4ig0w5cm" path="res://Art/Items/PickUp/items.png" id="4_16s4o"]
+
+[sub_resource type="Resource" id="Resource_4owux"]
+script = ExtResource("2_hka8n")
+heal_amount = 1
+audio = ExtResource("1_24pd8")
+price = 1
+use_description = ""
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t5faw"]
+atlas = ExtResource("4_16s4o")
+region = Rect2(192, 0, 32, 32)
+
+[resource]
+script = ExtResource("3_7men3")
+type = 3
+name = "Apple"
+description = "une belle pomme trés apétissante!!!"
+texture = SubResource("AtlasTexture_t5faw")
+value = 1
+effects = Array[Resource("res://Scenes/Items/Items_Effect/Items_Effet.gd")]([SubResource("Resource_4owux")])

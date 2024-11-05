@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhsrywgnht5g4"]
+
+[ext_resource type="Texture2D" uid="uid://ddtusq287yq8d" path="res://Art/Tile_Map/House/House_1.png" id="1_75g1y"]
+
+[node name="House_1" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -100)
+texture = ExtResource("1_75g1y")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D"]
+position = Vector2(0, 100)
+collision_layer = 16
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/StaticBody2D"]
+polygon = PackedVector2Array(-62, -4, -106, -6, -115, -11, -122, -18, -127, -107, 122, -107, 120, -21, 114, -11, 100, -3, -4, -4, -5, -48, -14, -57, -49, -57, -60, -46)

@@ -1,0 +1,498 @@
+[gd_scene load_steps=40 format=3 uid="uid://cck8rb6k3kmog"]
+
+[ext_resource type="Script" path="res://Scenes/HUD/Paused_Menu/Paused_Menu.gd" id="1_t4o4p"]
+[ext_resource type="Texture2D" uid="uid://dmx6msghmfqaa" path="res://Art/Items/Inventory/Cursor.png" id="2_6c8aa"]
+[ext_resource type="Texture2D" uid="uid://dmk5b4ig0w5cm" path="res://Art/Items/PickUp/items.png" id="2_54ble"]
+[ext_resource type="Script" path="res://Scenes/HUD/Paused_Menu/Inventory_Ui.gd" id="3_1jgx3"]
+[ext_resource type="PackedScene" uid="uid://b1mufs1xygmal" path="res://Scenes/HUD/Paused_Menu/Inventory/Inventory_Slot.tscn" id="3_g3rry"]
+[ext_resource type="FontFile" uid="uid://cqluqgfb6mw06" path="res://Art/Font/nintendo-nes-font.ttf" id="3_oxouu"]
+[ext_resource type="Resource" uid="uid://b00m7abjnxnd" path="res://Scenes/HUD/Paused_Menu/Inventory/Player_Inventory.tres" id="4_tkjva"]
+[ext_resource type="Script" path="res://Scenes/HUD/Paused_Menu/Inventory/Script/InventoryUI2.gd" id="6_xuqxa"]
+[ext_resource type="AudioStream" uid="uid://c1slutn15tndt" path="res://Art/Audio/LTTP_Pause_Open.wav" id="8_dlnv1"]
+[ext_resource type="AudioStream" uid="uid://th56x88c2ny1" path="res://Art/Audio/LTTP_Pause_Close.wav" id="9_oa1qo"]
+[ext_resource type="Texture2D" uid="uid://bp0tojbh218c3" path="res://Art/Items/HUD/ItemContenaire.png" id="10_5lirc"]
+[ext_resource type="Texture2D" uid="uid://cb6iw7ql0ihdr" path="res://Art/Items/Inventory/Heart_Hud.png" id="11_sk8vs"]
+[ext_resource type="Script" path="res://Scenes/HUD/Paused_Menu/InventoryUI4.gd" id="13_81alx"]
+[ext_resource type="Texture2D" uid="uid://c8dklric8ktcy" path="res://Art/Items/Inventory/Sword.png" id="15_3nveh"]
+[ext_resource type="Texture2D" uid="uid://b4hotykih6b81" path="res://Art/Items/Inventory/Stone_Sword.png" id="16_gtdyi"]
+[ext_resource type="Texture2D" uid="uid://b0dwibijunj0" path="res://Art/Items/Inventory/Stone_Sword_blu.png" id="16_uuv37"]
+[ext_resource type="Texture2D" uid="uid://rih3atr55kue" path="res://Art/Items/Inventory/Stone_Sword_Green.png" id="18_2kwu7"]
+[ext_resource type="Texture2D" uid="uid://mfddamsbsqgr" path="res://Art/Stone_Relife.png" id="18_d4c7o"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y8mki"]
+texture = ExtResource("2_6c8aa")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_prpxj"]
+atlas = ExtResource("2_54ble")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cgux3"]
+texture = SubResource("AtlasTexture_prpxj")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3k74c"]
+atlas = ExtResource("2_54ble")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dflof"]
+texture = SubResource("AtlasTexture_3k74c")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="Theme" id="Theme_plnyn"]
+default_font = ExtResource("3_oxouu")
+Button/colors/font_focus_color = Color(0.94902, 0.94902, 0.94902, 0)
+Button/colors/icon_focus_color = Color(1, 1, 1, 0)
+Button/colors/icon_normal_color = Color(1, 1, 1, 0)
+Button/styles/focus = SubResource("StyleBoxTexture_y8mki")
+Panel/styles/panel = SubResource("StyleBoxTexture_cgux3")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_dflof")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_daaae"]
+texture = ExtResource("10_5lirc")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgpmi"]
+atlas = ExtResource("2_54ble")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vj8hi"]
+texture = SubResource("AtlasTexture_cgpmi")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oupuw"]
+atlas = ExtResource("2_54ble")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8cr5r"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+texture = SubResource("AtlasTexture_oupuw")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r6mcb"]
+atlas = ExtResource("2_54ble")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tsp4k"]
+texture = SubResource("AtlasTexture_r6mcb")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0s7i0"]
+atlas = ExtResource("2_54ble")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_526fm"]
+texture = SubResource("AtlasTexture_0s7i0")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fptjj"]
+atlas = ExtResource("2_54ble")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wb2fe"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+texture = SubResource("AtlasTexture_fptjj")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yqkwl"]
+atlas = ExtResource("2_54ble")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1y1xq"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+texture = SubResource("AtlasTexture_yqkwl")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_14oxx"]
+atlas = ExtResource("2_54ble")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jw13g"]
+texture = SubResource("AtlasTexture_14oxx")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
+
+[node name="Paused_Menu" type="CanvasLayer"]
+process_mode = 3
+layer = 101
+script = ExtResource("1_t4o4p")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_plnyn")
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.121569, 0.121569, 0.121569, 0.788235)
+
+[node name="TitleInventory" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -153.0
+offset_top = 16.0
+offset_right = 152.0
+offset_bottom = 64.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_daaae")
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="Control/TitleInventory"]
+modulate = Color(0.560784, 0.819608, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -143.5
+offset_top = -16.0
+offset_right = 147.5
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_oxouu")
+theme_override_font_sizes/font_size = 30
+text = "INVENTORY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Item_Quest" type="Panel" parent="Control"]
+layout_mode = 0
+offset_left = 423.0
+offset_top = 221.0
+offset_right = 576.0
+offset_bottom = 249.0
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="Control/Item_Quest"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.5
+offset_top = -9.0
+offset_right = 68.5
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "QUEST"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sword_Panel" type="Panel" parent="Control"]
+layout_mode = 0
+offset_left = 281.0
+offset_top = 87.0
+offset_right = 401.0
+offset_bottom = 130.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_vj8hi")
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="Control/Sword_Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_oxouu")
+theme_override_font_sizes/font_size = 11
+text = "MAGIC
+SWORD"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Weapon_Panel" type="Panel" parent="Control"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 87.0
+offset_right = 261.0
+offset_bottom = 130.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_8cr5r")
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="Control/Weapon_Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_oxouu")
+text = "WEAPON"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Potion_Panel" type="Panel" parent="Control"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 217.0
+offset_right = 261.0
+offset_bottom = 257.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_tsp4k")
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="Control/Potion_Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_oxouu")
+text = "POTION"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Heart_Panel" type="Panel" parent="Control"]
+layout_mode = 0
+offset_left = 423.0
+offset_top = 85.0
+offset_right = 576.0
+offset_bottom = 128.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_526fm")
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="Control/Heart_Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_oxouu")
+theme_override_font_sizes/font_size = 10
+text = "HEART"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Weapon_Inventory" type="PanelContainer" parent="Control"]
+custom_minimum_size = Vector2(192, 0)
+layout_mode = 0
+offset_left = 65.0
+offset_top = 129.0
+offset_right = 261.0
+offset_bottom = 217.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_wb2fe")
+metadata/_edit_lock_ = true
+
+[node name="GridContainer" type="GridContainer" parent="Control/Weapon_Inventory"]
+layout_mode = 2
+columns = 5
+script = ExtResource("3_1jgx3")
+data = ExtResource("4_tkjva")
+
+[node name="InventorySlot" parent="Control/Weapon_Inventory/GridContainer" instance=ExtResource("3_g3rry")]
+layout_mode = 2
+
+[node name="InventorySlot2" parent="Control/Weapon_Inventory/GridContainer" instance=ExtResource("3_g3rry")]
+layout_mode = 2
+
+[node name="InventorySlot3" parent="Control/Weapon_Inventory/GridContainer" instance=ExtResource("3_g3rry")]
+layout_mode = 2
+
+[node name="InventorySlot4" parent="Control/Weapon_Inventory/GridContainer" instance=ExtResource("3_g3rry")]
+layout_mode = 2
+
+[node name="InventorySlot5" parent="Control/Weapon_Inventory/GridContainer" instance=ExtResource("3_g3rry")]
+layout_mode = 2
+
+[node name="InventorySlot6" parent="Control/Weapon_Inventory/GridContainer" instance=ExtResource("3_g3rry")]
+layout_mode = 2
+
+[node name="InventorySlot7" parent="Control/Weapon_Inventory/GridContainer" instance=ExtResource("3_g3rry")]
+layout_mode = 2
+
+[node name="InventorySlot8" parent="Control/Weapon_Inventory/GridContainer" instance=ExtResource("3_g3rry")]
+layout_mode = 2
+
+[node name="InventorySlot9" parent="Control/Weapon_Inventory/GridContainer" instance=ExtResource("3_g3rry")]
+layout_mode = 2
+
+[node name="InventorySlot10" parent="Control/Weapon_Inventory/GridContainer" instance=ExtResource("3_g3rry")]
+layout_mode = 2
+
+[node name="Sound_open" type="AudioStreamPlayer" parent="Control"]
+stream = ExtResource("8_dlnv1")
+max_polyphony = 10
+
+[node name="Sound_close" type="AudioStreamPlayer" parent="Control"]
+stream = ExtResource("9_oa1qo")
+max_polyphony = 10
+
+[node name="Potion_Inventory" type="PanelContainer" parent="Control"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 256.0
+offset_right = 261.0
+offset_bottom = 309.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_1y1xq")
+metadata/_edit_lock_ = true
+
+[node name="GridContainer" type="GridContainer" parent="Control/Potion_Inventory"]
+layout_mode = 2
+size_flags_horizontal = 4
+columns = 4
+script = ExtResource("6_xuqxa")
+data = ExtResource("4_tkjva")
+
+[node name="InventorySlot" parent="Control/Potion_Inventory/GridContainer" instance=ExtResource("3_g3rry")]
+layout_mode = 2
+
+[node name="InventorySlot2" parent="Control/Potion_Inventory/GridContainer" instance=ExtResource("3_g3rry")]
+layout_mode = 2
+
+[node name="InventorySlot3" parent="Control/Potion_Inventory/GridContainer" instance=ExtResource("3_g3rry")]
+layout_mode = 2
+
+[node name="InventorySlot4" parent="Control/Potion_Inventory/GridContainer" instance=ExtResource("3_g3rry")]
+layout_mode = 2
+
+[node name="HeartContenaire" type="Panel" parent="Control"]
+layout_mode = 0
+offset_left = 423.0
+offset_top = 128.0
+offset_right = 576.0
+offset_bottom = 221.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_jw13g")
+metadata/_edit_lock_ = true
+
+[node name="CenterContainer" type="CenterContainer" parent="Control/HeartContenaire"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/HeartContenaire/CenterContainer"]
+position = Vector2(77, 46)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("11_sk8vs")
+hframes = 4
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Control"]
+
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
+layout_mode = 0
+offset_left = 423.0
+offset_top = 249.0
+offset_right = 576.0
+offset_bottom = 342.0
+metadata/_edit_lock_ = true
+
+[node name="GridContainer" type="GridContainer" parent="Control/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 5
+columns = 3
+script = ExtResource("13_81alx")
+data = ExtResource("4_tkjva")
+
+[node name="InventorySlot" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_g3rry")]
+layout_mode = 2
+
+[node name="InventorySlot2" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_g3rry")]
+layout_mode = 2
+
+[node name="InventorySlot3" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_g3rry")]
+layout_mode = 2
+
+[node name="InventorySlot4" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_g3rry")]
+layout_mode = 2
+
+[node name="InventorySlot5" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_g3rry")]
+layout_mode = 2
+
+[node name="InventorySlot6" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_g3rry")]
+layout_mode = 2
+
+[node name="Sword_Contenaire" type="Panel" parent="Control"]
+layout_mode = 0
+offset_left = 281.0
+offset_top = 130.0
+offset_right = 401.0
+offset_bottom = 352.0
+metadata/_edit_lock_ = true
+
+[node name="Sword" type="Sprite2D" parent="Control/Sword_Contenaire"]
+position = Vector2(60, 113)
+texture = ExtResource("15_3nveh")
+metadata/_edit_lock_ = true
+
+[node name="Blu_Stone" type="Sprite2D" parent="Control/Sword_Contenaire"]
+visible = false
+position = Vector2(60, 74)
+texture = ExtResource("16_uuv37")
+metadata/_edit_lock_ = true
+
+[node name="Red_Stone" type="Sprite2D" parent="Control/Sword_Contenaire"]
+visible = false
+position = Vector2(60, 88)
+texture = ExtResource("16_gtdyi")
+metadata/_edit_lock_ = true
+
+[node name="Green_Stone" type="Sprite2D" parent="Control/Sword_Contenaire"]
+visible = false
+position = Vector2(60, 102)
+texture = ExtResource("18_2kwu7")
+metadata/_edit_lock_ = true
+
+[node name="Purple_Stone" type="Sprite2D" parent="Control/Sword_Contenaire"]
+visible = false
+position = Vector2(60, 60)
+texture = ExtResource("18_d4c7o")
+metadata/_edit_lock_ = true

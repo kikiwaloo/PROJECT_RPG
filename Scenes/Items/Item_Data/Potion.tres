@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=8 format=3 uid="uid://cbmf2t7qv3x6s"]
+
+[ext_resource type="Script" path="res://Scenes/Items/Items_Effect/Item_Effect_Heal.gd" id="1_l1evm"]
+[ext_resource type="Script" path="res://Scenes/Items/Script/Item_Data.gd" id="1_pwn6w"]
+[ext_resource type="Texture2D" uid="uid://dmk5b4ig0w5cm" path="res://Art/Items/PickUp/items.png" id="2_aqnif"]
+[ext_resource type="AudioStream" uid="uid://c7jicf5c14i5q" path="res://Art/Audio/hp-up.wav" id="2_mde7d"]
+[ext_resource type="AudioStream" uid="uid://dqoi8g87b2dtn" path="res://Art/Audio/LTTP_ItemFanfare.wav" id="2_yqg43"]
+
+[sub_resource type="Resource" id="Resource_ranl1"]
+script = ExtResource("1_l1evm")
+heal_amount = 5
+audio = ExtResource("2_mde7d")
+price = 100
+audio_shop_take = ExtResource("2_yqg43")
+use_description = ""
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6lbki"]
+atlas = ExtResource("2_aqnif")
+region = Rect2(32, 0, 32, 32)
+
+[resource]
+script = ExtResource("1_pwn6w")
+type = 2
+name = "Potion"
+description = "Potion rouge: restore 1 point de vie."
+texture = SubResource("AtlasTexture_6lbki")
+value = 1
+effects = Array[Resource("res://Scenes/Items/Items_Effect/Items_Effet.gd")]([SubResource("Resource_ranl1")])

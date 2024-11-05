@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3kfptgqj5dqm"]
+
+[ext_resource type="Texture2D" uid="uid://bn8f3vl767g3g" path="res://Art/Tile_Map/Deco/Tree.png" id="1_h2a5d"]
+
+[node name="Tree" type="Node2D"]
+position = Vector2(0, -50)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_h2a5d")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 16
+collision_mask = 4096
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(2.5828e-07, 25)
+rotation = 1.5708
+polygon = PackedVector2Array(38, -1, 26, -8, 17, -12, 20, -19, 26, -29, 24, -35, 16, -35, 9, -30, 0.999999, -30, 0.999999, -38, -3, -43, -13, -38, -25, -44, -25, 44, -15, 37, -8, 42, -4, 43, -0.999998, 39, -2, 34, 6, 30, 13, 33, 18, 37, 24, 35, 25, 28, 22, 21, 19, 14, 22, 10, 33, 6)

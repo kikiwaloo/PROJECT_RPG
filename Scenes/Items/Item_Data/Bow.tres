@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://c0tf0i1hfd1u5"]
+
+[ext_resource type="Script" path="res://Scenes/Items/Script/Item_Data.gd" id="1_5pfjg"]
+[ext_resource type="Texture2D" uid="uid://cxlb43qr1sing" path="res://Art/Items/PickUp/Bow.png" id="2_jqqmv"]
+
+[resource]
+script = ExtResource("1_5pfjg")
+type = 1
+name = "Bow"
+description = "Vive Robin of the wood!!!"
+texture = ExtResource("2_jqqmv")
+value = 1
+effects = Array[Resource("res://Scenes/Items/Items_Effect/Items_Effet.gd")]([])

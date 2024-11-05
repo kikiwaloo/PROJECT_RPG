@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://ypkmch47hiws"
+path="res://.godot/imported/Panneau_03.dialogue-221bfb2ba9484932eef9ab82706f5156.tres"
+
+[deps]
+
+source_file="res://Dialogue/Panneau_03.dialogue"
+dest_files=["res://.godot/imported/Panneau_03.dialogue-221bfb2ba9484932eef9ab82706f5156.tres"]
+
+[params]
+
+defaults=true

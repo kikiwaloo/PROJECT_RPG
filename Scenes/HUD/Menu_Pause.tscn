@@ -1,0 +1,113 @@
+[gd_scene load_steps=12 format=3 uid="uid://dtc1effk3i3os"]
+
+[ext_resource type="Script" path="res://Scenes/HUD/Paused_Menu/PausedMenu.gd" id="1_j5jof"]
+[ext_resource type="FontFile" uid="uid://cqluqgfb6mw06" path="res://Art/Font/nintendo-nes-font.ttf" id="2_mnqjw"]
+[ext_resource type="Texture2D" uid="uid://dmk5b4ig0w5cm" path="res://Art/Items/PickUp/items.png" id="3_3fndu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j2fi6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cofyl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rs4vm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lmpur"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nr5fi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ai3sm"]
+atlas = ExtResource("3_3fndu")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r7dxe"]
+texture = SubResource("AtlasTexture_ai3sm")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
+
+[sub_resource type="Theme" id="Theme_781hx"]
+default_font = ExtResource("2_mnqjw")
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_focus_color = Color(0.94902, 0.94902, 0, 1)
+Button/styles/disabled = SubResource("StyleBoxEmpty_j2fi6")
+Button/styles/focus = SubResource("StyleBoxEmpty_cofyl")
+Button/styles/hover = SubResource("StyleBoxEmpty_rs4vm")
+Button/styles/normal = SubResource("StyleBoxEmpty_lmpur")
+Button/styles/pressed = SubResource("StyleBoxEmpty_nr5fi")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_r7dxe")
+
+[node name="CanvasLayer" type="CanvasLayer"]
+process_mode = 3
+layer = 102
+script = ExtResource("1_j5jof")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_781hx")
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.752941)
+
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -104.0
+offset_top = -69.0
+offset_right = 108.0
+offset_bottom = 145.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/PanelContainer"]
+custom_minimum_size = Vector2(184, 186)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 45
+alignment = 1
+
+[node name="Save" type="Button" parent="Control/PanelContainer/VBoxContainer" groups=["Buttons"]]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Quit")
+text = "SAVE
+"
+flat = true
+
+[node name="Load" type="Button" parent="Control/PanelContainer/VBoxContainer" groups=["Buttons"]]
+layout_mode = 2
+text = "LOAD"
+flat = true
+
+[node name="Quit" type="Button" parent="Control/PanelContainer/VBoxContainer" groups=["Buttons"]]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../Save")
+text = "QUIT"
+flat = true
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -104.0
+offset_top = 48.0
+offset_right = 116.0
+offset_bottom = 71.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_mnqjw")
+theme_override_font_sizes/font_size = 20
+text = "PAUSED MENU"

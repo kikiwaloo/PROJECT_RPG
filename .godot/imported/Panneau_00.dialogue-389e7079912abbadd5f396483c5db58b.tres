@@ -1,0 +1,47 @@
+[gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_wfyrd"]
+
+[resource]
+script = ExtResource("1_wfyrd")
+using_states = PackedStringArray()
+titles = {
+"panneau_00": "3"
+}
+character_names = PackedStringArray("Hero")
+first_title = "3"
+lines = {
+"1": {
+"id": "1",
+"next_id": "3",
+"text": "panneau_00",
+"type": &"title"
+},
+"3": {
+"character": "Hero",
+"character_replacements": Array[Dictionary]([]),
+"id": "3",
+"next_id": "6",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "SUD - VILLAGE
+EST - TERRE DU CENTRE",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "SUD - VILLAGE
+EST - TERRE DU CENTRE",
+"type": &"dialogue"
+},
+"6": {
+"id": "6",
+"is_snippet": false,
+"next_id": "end",
+"type": &"goto"
+}
+}
+raw_text = "~ panneau_00
+
+Hero: SUD - VILLAGE
+	EST - TERRE DU CENTRE
+
+=> END"
+metadata/dialogue_manager_version = "2.41.3"

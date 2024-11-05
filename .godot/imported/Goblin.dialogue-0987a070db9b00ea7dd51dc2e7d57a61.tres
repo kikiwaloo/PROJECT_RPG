@@ -1,0 +1,323 @@
+[gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_a1jgg"]
+
+[resource]
+script = ExtResource("1_a1jgg")
+using_states = PackedStringArray()
+titles = {
+"start": "3"
+}
+character_names = PackedStringArray("Goblin", "Hero")
+first_title = "3"
+lines = {
+"1": {
+"id": "1",
+"next_id": "3",
+"text": "start",
+"type": &"title"
+},
+"11": {
+"character": "Hero",
+"character_replacements": Array[Dictionary]([]),
+"id": "11",
+"next_id": "13",
+"notes": "",
+"parent_id": "6",
+"tags": PackedStringArray(),
+"text": "Bonjour, déjà!!!!!
+Je pense que c'est la moindre des pollitesse.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Bonjour, déjà!!!!!
+Je pense que c'est la moindre des pollitesse.",
+"type": &"dialogue"
+},
+"13": {
+"character": "Goblin",
+"character_replacements": Array[Dictionary]([]),
+"id": "13",
+"next_id": "17",
+"notes": "",
+"parent_id": "6",
+"tags": PackedStringArray(),
+"text": "Ha oui pardon.....
+Bonjour jeune inconsiant.
+Le passage est interdit au personnes
+ne possedant pas le mot de passe.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Ha oui pardon.....
+Bonjour jeune inconsiant.
+Le passage est interdit au personnes
+ne possedant pas le mot de passe.",
+"type": &"dialogue"
+},
+"17": {
+"condition": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "MDP"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "variable",
+"value": "false"
+}, {
+"type": "colon"
+}])
+},
+"id": "17",
+"next_conditional_id": "23",
+"next_id": "18",
+"next_id_after": "35",
+"type": &"condition"
+},
+"18": {
+"character": "Goblin",
+"character_replacements": Array[Dictionary]([]),
+"id": "18",
+"next_id": "21",
+"notes": "",
+"parent_id": "17",
+"tags": PackedStringArray(),
+"text": "Et vu t'as tète, tu ne le connais pas
+c'est sur!!!
+HA!HA!HA!HA!HA",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Et vu t'as tète, tu ne le connais pas
+c'est sur!!!
+HA!HA!HA!HA!HA",
+"type": &"dialogue"
+},
+"21": {
+"character": "Goblin",
+"character_replacements": Array[Dictionary]([]),
+"id": "21",
+"next_id": "35",
+"notes": "",
+"parent_id": "17",
+"tags": PackedStringArray(),
+"text": "Alors du vent, va voir ailleur
+misérable moucheron.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Alors du vent, va voir ailleur
+misérable moucheron.",
+"type": &"dialogue"
+},
+"23": {
+"id": "23",
+"next_conditional_id": "35",
+"next_id": "24",
+"next_id_after": "35",
+"type": &"condition"
+},
+"24": {
+"character": "Hero",
+"character_replacements": Array[Dictionary]([]),
+"id": "24",
+"next_id": "26",
+"notes": "",
+"parent_id": "23",
+"tags": PackedStringArray(),
+"text": "Et oui je sais!!!
+J'ai eu vent de cette épreuve.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Et oui je sais!!!
+J'ai eu vent de cette épreuve.",
+"type": &"dialogue"
+},
+"26": {
+"character": "Goblin",
+"character_replacements": Array[Dictionary]([]),
+"id": "26",
+"next_id": "29",
+"notes": "",
+"parent_id": "23",
+"tags": PackedStringArray(),
+"text": "Ha bien!!!!
+Tu connais donc le mot de passe?
+Quel est-il?",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Ha bien!!!!
+Tu connais donc le mot de passe?
+Quel est-il?",
+"type": &"dialogue"
+},
+"29": {
+"character": "Hero",
+"character_replacements": Array[Dictionary]([]),
+"id": "29",
+"next_id": "30",
+"notes": "",
+"parent_id": "23",
+"tags": PackedStringArray(),
+"text": "\"Il faut raffraichir les maquignons\"",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "\"Il faut raffraichir les maquignons\"",
+"type": &"dialogue"
+},
+"3": {
+"condition": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "diag_end"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "variable",
+"value": "true"
+}, {
+"type": "colon"
+}])
+},
+"id": "3",
+"next_conditional_id": "6",
+"next_id": "4",
+"next_id_after": "17",
+"type": &"condition"
+},
+"30": {
+"character": "Goblin",
+"character_replacements": Array[Dictionary]([]),
+"id": "30",
+"next_id": "33",
+"notes": "",
+"parent_id": "23",
+"tags": PackedStringArray(),
+"text": "Mais comment c'est possible!!!!
+Tu as trouvé, je suis obligé de te laissé passer.
+Bon courage dans le chateau!!!!!!",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Mais comment c'est possible!!!!
+Tu as trouvé, je suis obligé de te laissé passer.
+Bon courage dans le chateau!!!!!!",
+"type": &"dialogue"
+},
+"33": {
+"id": "33",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "quest_goblin"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "variable",
+"value": "true"
+}]),
+"is_blocking": true
+},
+"next_id": "34",
+"parent_id": "23",
+"type": &"mutation"
+},
+"34": {
+"id": "34",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "diag_end"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "variable",
+"value": "true"
+}]),
+"is_blocking": true
+},
+"next_id": "35",
+"parent_id": "23",
+"type": &"mutation"
+},
+"35": {
+"id": "35",
+"is_snippet": false,
+"next_id": "end",
+"type": &"goto"
+},
+"4": {
+"character": "Goblin",
+"character_replacements": Array[Dictionary]([]),
+"id": "4",
+"next_id": "5",
+"notes": "",
+"parent_id": "3",
+"tags": PackedStringArray(),
+"text": "........",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "........",
+"type": &"dialogue"
+},
+"5": {
+"id": "5",
+"is_snippet": false,
+"next_id": "end!",
+"parent_id": "3",
+"type": &"goto"
+},
+"6": {
+"id": "6",
+"next_conditional_id": "17",
+"next_id": "7",
+"next_id_after": "17",
+"type": &"condition"
+},
+"7": {
+"character": "Goblin",
+"character_replacements": Array[Dictionary]([]),
+"id": "7",
+"next_id": "11",
+"notes": "",
+"parent_id": "6",
+"tags": PackedStringArray(),
+"text": "Halte là petit moucheron!!!!
+Où crois tu aller comme ça?
+On ne passe pas, je suis le gardien 
+et personne ne passe!!!!",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Halte là petit moucheron!!!!
+Où crois tu aller comme ça?
+On ne passe pas, je suis le gardien 
+et personne ne passe!!!!",
+"type": &"dialogue"
+}
+}
+raw_text = "~ start
+
+if diag_end == true:
+	Goblin: ........
+	=> END!
+else:
+	Goblin: Halte là petit moucheron!!!!
+		Où crois tu aller comme ça?
+		On ne passe pas, je suis le gardien 
+		et personne ne passe!!!!
+	Hero: Bonjour, déjà!!!!!
+		Je pense que c'est la moindre des pollitesse.
+	Goblin: Ha oui pardon.....
+		Bonjour jeune inconsiant.
+		Le passage est interdit au personnes
+		ne possedant pas le mot de passe.
+if MDP == false:
+	Goblin: Et vu t'as tète, tu ne le connais pas 
+		c'est sur!!!
+		HA!HA!HA!HA!HA
+	Goblin: Alors du vent, va voir ailleur
+		misérable moucheron.
+else:
+	Hero: Et oui je sais!!!
+		J'ai eu vent de cette épreuve.
+	Goblin: Ha bien!!!!
+		Tu connais donc le mot de passe?
+		Quel est-il?
+	Hero: \"Il faut raffraichir les maquignons\"
+	Goblin: Mais comment c'est possible!!!!
+		Tu as trouvé, je suis obligé de te laissé passer.
+		Bon courage dans le chateau!!!!!!
+	set quest_goblin = true
+	set diag_end = true
+=> END"
+metadata/dialogue_manager_version = "2.41.3"

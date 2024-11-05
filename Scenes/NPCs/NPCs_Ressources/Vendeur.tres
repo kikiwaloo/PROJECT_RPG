@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="NPCResource" load_steps=3 format=3 uid="uid://c37weyjq2rbl5"]
+
+[ext_resource type="Script" path="res://Scenes/NPCs/Script/NpcResource.gd" id="1_mr6qm"]
+[ext_resource type="Texture2D" uid="uid://r1d6xf03jamc" path="res://Scenes/NPCs/Sprites/Vendeur.png" id="2_nldk2"]
+
+[resource]
+script = ExtResource("1_mr6qm")
+npc_name = "Vendeur"
+sprite = ExtResource("2_nldk2")
+dialog_audio_pitch = ""

@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://chfsiejfcn7f2"
+path="res://.godot/imported/Olivier.dialogue-8b12948a567f21426e239aa17053443f.tres"
+
+[deps]
+
+source_file="res://Dialogue/Olivier.dialogue"
+dest_files=["res://.godot/imported/Olivier.dialogue-8b12948a567f21426e239aa17053443f.tres"]
+
+[params]
+
+defaults=true

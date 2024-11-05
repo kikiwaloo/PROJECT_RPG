@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://sd2qc8sonph0"]
+
+[ext_resource type="PackedScene" uid="uid://bmaguxjus0hum" path="res://Scenes/Props/pushable_object.tscn" id="1_i1ab4"]
+[ext_resource type="Texture2D" uid="uid://dok7i3ed5gj0c" path="res://Art/Tile_Map/Deco/stone_01.png" id="2_xr1fa"]
+[ext_resource type="AudioStream" uid="uid://d4m1mebenhn3r" path="res://Art/Audio/push_stone.wav" id="3_qteb2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7pneu"]
+size = Vector2(30, 30)
+
+[node name="Stone" instance=ExtResource("1_i1ab4")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_xr1fa")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("RectangleShape2D_7pneu")
+
+[node name="AudioStreamPlayer2D" parent="." index="2"]
+stream = ExtResource("3_qteb2")

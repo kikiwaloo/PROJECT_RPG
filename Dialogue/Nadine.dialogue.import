@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://6vjxobnf07v6"
+path="res://.godot/imported/Nadine.dialogue-db7bbd1909330ebd8dc344e3170d128c.tres"
+
+[deps]
+
+source_file="res://Dialogue/Nadine.dialogue"
+dest_files=["res://.godot/imported/Nadine.dialogue-db7bbd1909330ebd8dc344e3170d128c.tres"]
+
+[params]
+
+defaults=true

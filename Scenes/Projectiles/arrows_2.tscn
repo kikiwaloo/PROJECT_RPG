@@ -1,0 +1,84 @@
+[gd_scene load_steps=9 format=3 uid="uid://dr1peilb5vymp"]
+
+[ext_resource type="PackedScene" uid="uid://dtnypier3e0c8" path="res://Scenes/Over_Lap/Hurt_Box/Hurt_Box.tscn" id="1_2ae6p"]
+[ext_resource type="Script" path="res://Scenes/Projectiles/arrows_2.gd" id="1_3njvq"]
+[ext_resource type="Texture2D" uid="uid://b5fdnrlic45lv" path="res://Art/Items/Projectiles/Fleche-sheet.png" id="2_ovwdy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l86m6"]
+size = Vector2(14, 4)
+
+[sub_resource type="Animation" id="Animation_8do4k"]
+resource_name = "Arrow"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_80qke"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5mw4b"]
+_data = {
+"Arrow": SubResource("Animation_8do4k"),
+"RESET": SubResource("Animation_80qke")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5vnlv"]
+size = Vector2(14, 4)
+
+[node name="Arrows2" type="Node2D"]
+script = ExtResource("1_3njvq")
+acceleration = 400.0
+max_speed = 300.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ovwdy")
+hframes = 4
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4096
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_l86m6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5mw4b")
+}
+autoplay = "Arrow"
+
+[node name="Hurt_Box" parent="." instance=ExtResource("1_2ae6p")]
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurt_Box"]
+shape = SubResource("RectangleShape2D_5vnlv")
+debug_color = Color(0.953069, 0.152403, 0.397168, 0.42)
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="area_entered" from="Hurt_Box" to="." method="_on_hurt_box_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

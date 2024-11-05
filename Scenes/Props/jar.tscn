@@ -1,0 +1,184 @@
+[gd_scene load_steps=23 format=3 uid="uid://dyah4q8y11ewt"]
+
+[ext_resource type="Texture2D" uid="uid://cbremmcb53whs" path="res://Scenes/Props/Sprite/Jar_SpriteSheet.png" id="1_2tmhs"]
+[ext_resource type="Script" path="res://Scenes/Props/jar.gd" id="1_d0tx2"]
+[ext_resource type="AudioStream" uid="uid://cmpjh75bga8lt" path="res://Art/Audio/LTTP_Shatter.ogg" id="2_i0v2o"]
+[ext_resource type="Resource" uid="uid://d4yif7w640xr" path="res://Scenes/Items/Item_Data/Apple.tres" id="2_v5xxm"]
+[ext_resource type="Script" path="res://Scenes/Items/Script/Drop_Data.gd" id="3_ydg08"]
+[ext_resource type="Resource" uid="uid://dfke8raew0j44" path="res://Scenes/Items/Item_Data/Green_Rupee.tres" id="4_7r6lp"]
+[ext_resource type="PackedScene" uid="uid://6lbbsist5e31" path="res://Scenes/Over_Lap/Hit_Box/Hit_Box.tscn" id="4_m8ih6"]
+[ext_resource type="Resource" uid="uid://11we36fysqqf" path="res://Scenes/Items/Item_Data/Arrows.tres" id="5_c4noi"]
+[ext_resource type="Resource" uid="uid://oylpswe7ldmx" path="res://Scenes/Items/Item_Data/Blue_Rupee.tres" id="6_8a1ur"]
+[ext_resource type="PackedScene" uid="uid://bu56nbjojd4mg" path="res://Scenes/Interact/Throwable/Throwable.tscn" id="10_074tr"]
+
+[sub_resource type="Resource" id="Resource_babd7"]
+script = ExtResource("3_ydg08")
+item = ExtResource("2_v5xxm")
+probabitity = 30.0
+min_amount = 1
+max_amount = 1
+
+[sub_resource type="Resource" id="Resource_dpw3f"]
+script = ExtResource("3_ydg08")
+item = ExtResource("4_7r6lp")
+probabitity = 50.0
+min_amount = 2
+max_amount = 4
+
+[sub_resource type="Resource" id="Resource_5lm17"]
+script = ExtResource("3_ydg08")
+item = ExtResource("5_c4noi")
+probabitity = 30.0
+min_amount = 5
+max_amount = 5
+
+[sub_resource type="Resource" id="Resource_ywxav"]
+script = ExtResource("3_ydg08")
+item = ExtResource("6_8a1ur")
+probabitity = 50.0
+min_amount = 1
+max_amount = 1
+
+[sub_resource type="Animation" id="Animation_mvfxi"]
+resource_name = "Destroy"
+length = 0.6
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("2_i0v2o")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+
+[sub_resource type="Animation" id="Animation_or0s3"]
+resource_name = "Idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_gb4pe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5unoc"]
+_data = {
+"Destroy": SubResource("Animation_mvfxi"),
+"Idle": SubResource("Animation_or0s3"),
+"RESET": SubResource("Animation_gb4pe")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wapty"]
+radius = 10.0499
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4bpt4"]
+size = Vector2(20, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0p5ms"]
+size = Vector2(20, 10)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g3f04"]
+radius = 12.0
+
+[node name="Jar" type="Node2D"]
+script = ExtResource("1_d0tx2")
+drops = Array[ExtResource("3_ydg08")]([SubResource("Resource_babd7"), SubResource("Resource_dpw3f"), SubResource("Resource_5lm17"), SubResource("Resource_ywxav")])
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -9)
+texture = ExtResource("1_2tmhs")
+hframes = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5unoc")
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Hit_Box" parent="." instance=ExtResource("4_m8ih6")]
+position = Vector2(-1, -6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hit_Box"]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_wapty")
+debug_color = Color(0.956238, 0.173354, 0.308643, 0.42)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, -6)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 7.5)
+shape = SubResource("RectangleShape2D_4bpt4")
+debug_color = Color(0.4731, 0.587808, 0.126125, 0.42)
+
+[node name="Throwable" parent="." instance=ExtResource("10_074tr")]
+position = Vector2(0, -5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Throwable"]
+position = Vector2(0, 7)
+shape = SubResource("RectangleShape2D_0p5ms")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4096
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -6)
+shape = SubResource("CircleShape2D_g3f04")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

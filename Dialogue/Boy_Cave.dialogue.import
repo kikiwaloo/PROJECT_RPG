@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://cf31uj8peowhh"
+path="res://.godot/imported/Boy_Cave.dialogue-f93283d76facc1a6a549acbedc799d75.tres"
+
+[deps]
+
+source_file="res://Dialogue/Boy_Cave.dialogue"
+dest_files=["res://.godot/imported/Boy_Cave.dialogue-f93283d76facc1a6a549acbedc799d75.tres"]
+
+[params]
+
+defaults=true

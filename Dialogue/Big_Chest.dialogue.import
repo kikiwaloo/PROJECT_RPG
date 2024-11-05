@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://cu454sqxljqvg"
+path="res://.godot/imported/Big_Chest.dialogue-c17bc2f953ad5cfc22eb66b10b4d0502.tres"
+
+[deps]
+
+source_file="res://Dialogue/Big_Chest.dialogue"
+dest_files=["res://.godot/imported/Big_Chest.dialogue-c17bc2f953ad5cfc22eb66b10b4d0502.tres"]
+
+[params]
+
+defaults=true

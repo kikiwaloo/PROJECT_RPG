@@ -1,0 +1,89 @@
+[gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_slsv2"]
+
+[resource]
+script = ExtResource("1_slsv2")
+using_states = PackedStringArray()
+titles = {
+"start": "3"
+}
+character_names = PackedStringArray("Marco", "Hero")
+first_title = "3"
+lines = {
+"1": {
+"id": "1",
+"next_id": "3",
+"text": "start",
+"type": &"title"
+},
+"10": {
+"id": "10",
+"is_snippet": false,
+"next_id": "end",
+"type": &"goto"
+},
+"3": {
+"character": "Marco",
+"character_replacements": Array[Dictionary]([]),
+"id": "3",
+"next_id": "4",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "Bien le bonjour jeune aventurier.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Bien le bonjour jeune aventurier.",
+"type": &"dialogue"
+},
+"4": {
+"character": "Hero",
+"character_replacements": Array[Dictionary]([]),
+"id": "4",
+"next_id": "6",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "Salut, tu ne serais pas ou se trouve la maison de mamie Coco
+par hazard??",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Salut, tu ne serais pas ou se trouve la maison de mamie Coco
+par hazard??",
+"type": &"dialogue"
+},
+"6": {
+"character": "Marco",
+"character_replacements": Array[Dictionary]([]),
+"id": "6",
+"next_id": "8",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "Si bien sur, tout le monde la connais ici!!!!!
+C'est la maison au bout du village, sur la colline.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Si bien sur, tout le monde la connais ici!!!!!
+C'est la maison au bout du village, sur la colline.",
+"type": &"dialogue"
+},
+"8": {
+"character": "Hero",
+"character_replacements": Array[Dictionary]([]),
+"id": "8",
+"next_id": "10",
+"notes": "",
+"tags": PackedStringArray(),
+"text": "Merci mec, à plus dans le bus.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Merci mec, à plus dans le bus.",
+"type": &"dialogue"
+}
+}
+raw_text = "~ start
+
+Marco: Bien le bonjour jeune aventurier.
+Hero: Salut, tu ne serais pas ou se trouve la maison de mamie Coco
+	par hazard??
+Marco: Si bien sur, tout le monde la connais ici!!!!!
+	C'est la maison au bout du village, sur la colline.
+Hero: Merci mec, à plus dans le bus.
+
+=> END"
+metadata/dialogue_manager_version = "2.41.3"

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://cu71n2tupg6gq"]
+
+[ext_resource type="Script" path="res://Scenes/Items/Items_Effect/Bombe_Effect.gd" id="1_2kohp"]
+[ext_resource type="Script" path="res://Scenes/Items/Script/Item_Data.gd" id="1_4uhl0"]
+[ext_resource type="Texture2D" uid="uid://c5vpmfe8tfghc" path="res://Art/Items/PickUp/Bombe.png" id="2_f2dv3"]
+
+[sub_resource type="Resource" id="Resource_nl6m7"]
+script = ExtResource("1_2kohp")
+quantity = 5
+price = 10
+use_description = ""
+
+[resource]
+script = ExtResource("1_4uhl0")
+type = 1
+name = "Bombe"
+description = ""
+texture = ExtResource("2_f2dv3")
+value = 1
+effects = Array[Resource("res://Scenes/Items/Items_Effect/Items_Effet.gd")]([SubResource("Resource_nl6m7")])

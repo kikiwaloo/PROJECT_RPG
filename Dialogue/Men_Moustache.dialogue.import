@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://dkyh4pseglc57"
+path="res://.godot/imported/Men_Moustache.dialogue-b953a5b99e45852cc0bfb61d68cab695.tres"
+
+[deps]
+
+source_file="res://Dialogue/Men_Moustache.dialogue"
+dest_files=["res://.godot/imported/Men_Moustache.dialogue-b953a5b99e45852cc0bfb61d68cab695.tres"]
+
+[params]
+
+defaults=true

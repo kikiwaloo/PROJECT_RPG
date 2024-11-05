@@ -1,0 +1,103 @@
+[gd_scene load_steps=11 format=3 uid="uid://clkknx82nb4qg"]
+
+[ext_resource type="Texture2D" uid="uid://67ox7ajbivk2" path="res://Art/Title_Screen/Main.png" id="1_6al1b"]
+[ext_resource type="Script" path="res://Scenes/TitleScreen/main_menu.gd" id="1_kfwh0"]
+[ext_resource type="FontFile" uid="uid://cqluqgfb6mw06" path="res://Art/Font/nintendo-nes-font.ttf" id="2_yjkq5"]
+[ext_resource type="AudioStream" uid="uid://bepwuboqyj00k" path="res://Art/Audio/02. The Goddess Appears.mp3" id="4_bifol"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_asobd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tuuru"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0tpms"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lcx0g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ipove"]
+
+[sub_resource type="Theme" id="Theme_q1loy"]
+default_font = ExtResource("2_yjkq5")
+Button/colors/font_color = Color(0, 0, 0.988235, 1)
+Button/colors/font_focus_color = Color(1, 1, 0, 1)
+Button/styles/disabled = SubResource("StyleBoxEmpty_asobd")
+Button/styles/focus = SubResource("StyleBoxEmpty_tuuru")
+Button/styles/hover = SubResource("StyleBoxEmpty_0tpms")
+Button/styles/normal = SubResource("StyleBoxEmpty_lcx0g")
+Button/styles/pressed = SubResource("StyleBoxEmpty_ipove")
+
+[node name="Main_Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kfwh0")
+music = ExtResource("4_bifol")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_bifol")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_6al1b")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -176.0
+offset_top = -116.0
+offset_right = 184.0
+offset_bottom = -76.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.717647, 0.847059, 0.847059, 1)
+theme_override_fonts/font = ExtResource("2_yjkq5")
+theme_override_font_sizes/font_size = 40
+text = "MAIN MENU"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -128.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_q1loy")
+theme_override_constants/separation = 14
+alignment = 1
+
+[node name="Start" type="Button" parent="VBoxContainer" groups=["Buttons"]]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Quit")
+text = "NEW GAME"
+flat = true
+
+[node name="Load" type="Button" parent="VBoxContainer" groups=["Buttons"]]
+layout_mode = 2
+text = "LOAD GAME"
+flat = true
+
+[node name="Control" type="Button" parent="VBoxContainer" groups=["Buttons"]]
+layout_mode = 2
+text = "CONTROL"
+flat = true
+
+[node name="Quit" type="Button" parent="VBoxContainer" groups=["Buttons"]]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../Start")
+text = "QUIT"
+flat = true

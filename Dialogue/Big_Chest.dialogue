@@ -1,0 +1,8 @@
+~ bigchest
+
+if boss_key == false:
+	Hero: Zut, c'est vérouillé!!!!!
+		J'ai bien ma chemise mais c'est trop moue.
+else:
+	Hero: cool!!!
+=> END

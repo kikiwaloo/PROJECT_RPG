@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=7 format=3 uid="uid://oylpswe7ldmx"]
+
+[ext_resource type="AudioStream" uid="uid://rjbq5s1hfiqn" path="res://Art/Audio/LTTP_Rupee2.wav" id="1_ggavl"]
+[ext_resource type="Script" path="res://Scenes/Items/Script/Item_Data.gd" id="1_rhvcb"]
+[ext_resource type="Script" path="res://Scenes/Items/Items_Effect/Rupees.gd" id="2_dk1is"]
+[ext_resource type="Texture2D" uid="uid://dvy8dh3gfixbe" path="res://Art/Items/PickUp/Blue_Rupees.png" id="4_b6nh8"]
+
+[sub_resource type="Resource" id="Resource_udyjp"]
+script = ExtResource("2_dk1is")
+audio = ExtResource("1_ggavl")
+count_rupees = 5
+use_description = ""
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_udo31"]
+atlas = ExtResource("4_b6nh8")
+region = Rect2(48, 0, 16, 16)
+
+[resource]
+script = ExtResource("1_rhvcb")
+type = 0
+name = "Blue_Rupee"
+description = ""
+texture = SubResource("AtlasTexture_udo31")
+value = 1
+effects = Array[Resource("res://Scenes/Items/Items_Effect/Items_Effet.gd")]([SubResource("Resource_udyjp")])

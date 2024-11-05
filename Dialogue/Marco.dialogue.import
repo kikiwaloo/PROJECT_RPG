@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://d0og8u2gpfymq"
+path="res://.godot/imported/Marco.dialogue-738f0dc3c735a9b230273daf635963c1.tres"
+
+[deps]
+
+source_file="res://Dialogue/Marco.dialogue"
+dest_files=["res://.godot/imported/Marco.dialogue-738f0dc3c735a9b230273daf635963c1.tres"]
+
+[params]
+
+defaults=true

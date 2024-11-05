@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxrxkk7moaype"]
+
+[ext_resource type="Texture2D" uid="uid://cqkda75cp2emo" path="res://Art/Tile_Map/Cave/Deco/Collonne.png" id="1_6bdkl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vm4fk"]
+size = Vector2(31, 28)
+
+[node name="Collonne" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, -34)
+texture = ExtResource("1_6bdkl")
+
+[node name="Area2D" type="StaticBody2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.5, -15)
+shape = SubResource("RectangleShape2D_vm4fk")
