@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://d26a1bn08annn"]
+[gd_scene load_steps=40 format=3 uid="uid://d26a1bn08annn"]
 
 [ext_resource type="PackedScene" uid="uid://c6id1h8g1s3ut" path="res://Scenes/Levels/Dongeons/dungeon_builder.tscn" id="1_4hydi"]
 [ext_resource type="Script" path="res://Scenes/Levels/Level.gd" id="1_yqjgq"]
@@ -6,21 +6,713 @@
 [ext_resource type="PackedScene" uid="uid://b6lm0occ7485n" path="res://Scenes/Levels/player_spawn.tscn" id="2_qn1u2"]
 [ext_resource type="PackedScene" uid="uid://bcf46g1nm6dvu" path="res://Scenes/Over_Lap/level_transition.tscn" id="3_rbpj6"]
 [ext_resource type="PackedScene" uid="uid://c0n1hr3pjcg77" path="res://Scenes/Levels/Dongeons/Dungeons_Props/torche_dungon.tscn" id="6_3phjm"]
+[ext_resource type="Script" path="res://Scenes/Levels/Dongeons/Dongeons/BossWizard.gd" id="7_5h3o8"]
+[ext_resource type="Texture2D" uid="uid://7s3dnnirovq1" path="res://Art/Boss/boss-cloak.png" id="7_b4p57"]
+[ext_resource type="PackedScene" uid="uid://c064xhq6au0sf" path="res://Scenes/Over_Lap/Persistence_Data_Handler/PersistenceDataHandler.tscn" id="7_i4eye"]
+[ext_resource type="PackedScene" uid="uid://b8uad0sut84fi" path="res://Scenes/Levels/Dongeons/Black_Wizzard/energy_beam.tscn" id="7_pwxus"]
+[ext_resource type="Texture2D" uid="uid://b6rk3x5shhnno" path="res://Art/Boss/boss-hand.png" id="8_7nage"]
+[ext_resource type="PackedScene" uid="uid://dtnypier3e0c8" path="res://Scenes/Over_Lap/Hurt_Box/Hurt_Box.tscn" id="8_ghot5"]
+[ext_resource type="PackedScene" uid="uid://6lbbsist5e31" path="res://Scenes/Over_Lap/Hit_Box/Hit_Box.tscn" id="9_y3gem"]
+[ext_resource type="AudioStream" uid="uid://c3whfh2megdbi" path="res://Art/Boss/boss_destroy.wav" id="11_cun4x"]
+[ext_resource type="PackedScene" uid="uid://cd5dofyx22u5l" path="res://Scenes/Levels/Dongeons/Dungeons_Props/Door_Enemy.tscn" id="15_ny4f6"]
+
+[sub_resource type="Gradient" id="Gradient_28wiw"]
+offsets = PackedFloat32Array(0.381443, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nvyt2"]
+gradient = SubResource("Gradient_28wiw")
+width = 48
+height = 24
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="Animation" id="Animation_2yshx"]
+resource_name = "Down"
+length = 0.3334
+loop_mode = 2
+step = 0.0333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1665, 0.3333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_1ee8n"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_imfkc"]
+resource_name = "Side"
+length = 0.3334
+loop_mode = 2
+step = 0.0333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1665, 0.3333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [6, 7, 8]
+}
+
+[sub_resource type="Animation" id="Animation_mdwcx"]
+resource_name = "Up"
+length = 0.3334
+loop_mode = 2
+step = 0.0333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1665, 0.3333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [3, 4, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f065g"]
+_data = {
+"Down": SubResource("Animation_2yshx"),
+"RESET": SubResource("Animation_1ee8n"),
+"Side": SubResource("Animation_imfkc"),
+"Up": SubResource("Animation_mdwcx")
+}
+
+[sub_resource type="Gradient" id="Gradient_mau3d"]
+offsets = PackedFloat32Array(0.314433, 1)
+colors = PackedColorArray(0.772549, 0, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qjjpg"]
+gradient = SubResource("Gradient_mau3d")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_86dkg"]
+radius = 13.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_salfj"]
+radius = 25.0
+
+[sub_resource type="Animation" id="Animation_6hmo2"]
+resource_name = "Cast_spell"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CloakSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 2, 2.3, 3),
+"transitions": PackedFloat32Array(-2, -2, -2, -2, -2),
+"update": 0,
+"values": [Vector2(0, -34), Vector2(0, -34), Vector2(0, -30), Vector2(0, -38), Vector2(0, -34)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 2, 2.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(2, 0.8, 1.2, 1), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CloakSprite/Hand01:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.6, 1.9, 2.1, 2.6, 2.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 1, 0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CloakSprite/Hand01:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.8, 2.3, 2.4, 2.6),
+"transitions": PackedFloat32Array(-2, -2, -2, -2, -2),
+"update": 0,
+"values": [Vector2(20, 4), Vector2(20, -12), Vector2(20, 7), Vector2(20, 7), Vector2(20, 4)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CloakSprite/Hand02:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.6, 1.9, 2.1, 2.6, 2.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 1, 0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CloakSprite/Hand02:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.8, 2.3, 2.4, 2.6),
+"transitions": PackedFloat32Array(-2, -2, -2, -2, -2),
+"update": 0,
+"values": [Vector2(-20, 4), Vector2(-20, -12), Vector2(-20, 7), Vector2(-20, 7), Vector2(-20, 4)]
+}
+
+[sub_resource type="Animation" id="Animation_qnpty"]
+resource_name = "Destroy"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CloakSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2.9),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(0, -34), Vector2(0, -40), Vector2(0, -34)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(2, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CloakSprite/Hand01:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CloakSprite/Hand01:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.8),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(20, 4), Vector2(20, 7), Vector2(20, -8)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CloakSprite/Hand02:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CloakSprite/Hand02:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.8),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(-20, 4), Vector2(-20, 7), Vector2(-20, -8)]
+}
+tracks/6/type = "audio"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer2D")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("11_cun4x")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/6/use_blend = true
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("..")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.2, 0.5, 0.8, 1.1, 1.4, 1.7, 2, 2.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [Vector2(10, -32)],
+"method": &"explosion"
+}, {
+"args": [Vector2(2, -15)],
+"method": &"explosion"
+}, {
+"args": [Vector2(-14, -36)],
+"method": &"explosion"
+}, {
+"args": [Vector2(12, -29)],
+"method": &"explosion"
+}, {
+"args": [Vector2(-2, -22)],
+"method": &"explosion"
+}, {
+"args": [Vector2(2, -27)],
+"method": &"explosion"
+}, {
+"args": [Vector2(6, -32)],
+"method": &"explosion"
+}, {
+"args": [Vector2(10, -24)],
+"method": &"explosion"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_xk31b"]
+resource_name = "Disappear"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CloakSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.6),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(0, -34), Vector2(0, -30), Vector2(0, -48)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CloakSprite/Hand01:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CloakSprite/Hand01:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.6),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(20, 4), Vector2(20, 7), Vector2(20, 4)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CloakSprite/Hand02:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CloakSprite/Hand02:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.6),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(-20, 4), Vector2(-20, 7), Vector2(-20, 4)]
+}
+
+[sub_resource type="Animation" id="Animation_v8yvt"]
+resource_name = "Idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CloakSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(0, -34), Vector2(0, -40), Vector2(0, -34)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CloakSprite/Hand01:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CloakSprite/Hand01:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(20, 4), Vector2(20, 7), Vector2(20, 4)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CloakSprite/Hand02:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CloakSprite/Hand02:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(-20, 4), Vector2(-20, 7), Vector2(-20, 4)]
+}
+
+[sub_resource type="Animation" id="Animation_jbjk5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CloakSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -34)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CloakSprite/Hand01:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CloakSprite/Hand01:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(20, 4)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CloakSprite/Hand02:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CloakSprite/Hand02:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-20, 4)]
+}
+
+[sub_resource type="Animation" id="Animation_w34p8"]
+resource_name = "appear"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CloakSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.6),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(0, -48), Vector2(0, -30), Vector2(0, -34)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CloakSprite/Hand01:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [2, 1, 0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CloakSprite/Hand01:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(20, 4), Vector2(20, 7), Vector2(20, 4)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CloakSprite/Hand02:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [2, 1, 0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CloakSprite/Hand02:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(-20, 4), Vector2(-20, 7), Vector2(-20, 4)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_irmek"]
+_data = {
+"Cast_spell": SubResource("Animation_6hmo2"),
+"Destroy": SubResource("Animation_qnpty"),
+"Disappear": SubResource("Animation_xk31b"),
+"Idle": SubResource("Animation_v8yvt"),
+"RESET": SubResource("Animation_jbjk5"),
+"appear": SubResource("Animation_w34p8")
+}
+
+[sub_resource type="Animation" id="Animation_asbd0"]
+resource_name = "Damage"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CloakSprite:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(3, 2, 1.5, 1), Color(3, 2, 1.50196, 0), Color(3, 2, 1.5, 1), Color(3, 2, 1.50196, 0), Color(3, 2, 1.5, 1), Color(3, 2, 1.50196, 0), Color(3, 2, 1.5, 1), Color(3, 2, 1.50196, 0), Color(3, 2, 1.5, 1), Color(3, 2, 1.50196, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_57kwf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CloakSprite:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ulvow"]
+resource_name = "default"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CloakSprite:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gpym0"]
+_data = {
+"Damage": SubResource("Animation_asbd0"),
+"RESET": SubResource("Animation_57kwf"),
+"default": SubResource("Animation_ulvow")
+}
+
+[sub_resource type="Gradient" id="Gradient_ynmoy"]
+offsets = PackedFloat32Array(0.695876, 0.845361, 1)
+colors = PackedColorArray(1, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_m18rd"]
+gradient = SubResource("Gradient_ynmoy")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
 
 [node name="Room_10" type="Node2D"]
 script = ExtResource("1_yqjgq")
 music = ExtResource("2_5kw8a")
 
 [node name="Dungeon_Builder" parent="." instance=ExtResource("1_4hydi")]
-layer_0/tile_data = PackedInt32Array(0, 589824, 0, 1, 655360, 0, 2, 655360, 0, 3, 262144, 5, 4, 458752, 5, 5, 655360, 0, 6, 655360, 0, 7, 262144, 5, 8, 458752, 5, 9, 655360, 0, 10, 655360, 0, 11, 262144, 5, 12, 458752, 5, 13, 655360, 0, 14, 655360, 0, 15, 262144, 5, 16, 458752, 5, 17, 655360, 0, 18, 655360, 0, 19, 262144, 5, 20, 458752, 5, 21, 655360, 0, 65536, 589824, 2, 131072, 589824, 2, 196608, 589824, 2, 262144, 589824, 2, 327680, 589824, 2, 393216, 589824, 2, 458752, 589824, 2, 524288, 589824, 2, 589824, 589824, 2, 65537, 655360, 1, 131074, 720896, 2, 65538, 786432, 1, 65539, 262144, 6, 65540, 458752, 6, 65541, 786432, 1, 65542, 786432, 1, 65543, 262144, 6, 65544, 458752, 6, 65545, 786432, 1, 65546, 786432, 1, 65547, 262144, 6, 65548, 458752, 6, 65549, 786432, 1, 65550, 786432, 1, 65551, 262144, 6, 65552, 458752, 6, 65553, 786432, 1, 65554, 786432, 1, 65555, 262144, 6, 65556, 458752, 6, 65557, 786432, 1, 65558, 786432, 1, 65559, 262144, 6, 65560, 458752, 6, 65561, 851968, 1, 65562, 917504, 1, 65563, 983040, 1, 65564, 917504, 7, 131100, 917504, 7, 131075, 262144, 7, 131076, 458752, 7, 131077, 786432, 2, 131078, 786432, 2, 131079, 262144, 7, 131080, 458752, 7, 131081, 786432, 2, 131082, 786432, 2, 131083, 262144, 7, 131084, 458752, 7, 131085, 786432, 2, 131086, 786432, 2, 131087, 262144, 7, 131088, 458752, 7, 131089, 786432, 2, 131090, 786432, 2, 131091, 262144, 7, 131092, 458752, 7, 131093, 786432, 2, 131094, 786432, 2, 131095, 262144, 7, 131096, 458752, 7, 131097, 851968, 2, 131098, 917504, 2, 131099, 983040, 2, 22, 720896, 0, 23, 262144, 5, 24, 458752, 5, 25, 851968, 0, 26, 917504, 0, 27, 983040, 0, 28, 917504, 7, 131073, 655360, 3, 196609, 655360, 3, 262145, 655360, 3, 327681, 655360, 3, 393217, 655360, 3, 458753, 655360, 3, 524289, 655360, 3, 589825, 655360, 3, 655361, 655360, 3, 720897, 655360, 3, 786433, 655360, 3, 851969, 655360, 3, 917505, 655360, 3, 983041, 655360, 3, 1048577, 655360, 3, 1114113, 655360, 3, 1179649, 655360, 3, 1245185, 655360, 5, 1179650, 720896, 4, 1179676, 786432, 7, 1245186, 786432, 5, 1245187, 0, 6, 1245188, 196608, 6, 1245189, 786432, 5, 1245190, 786432, 5, 1245191, 0, 6, 1245192, 196608, 6, 1245193, 786432, 5, 1245194, 0, 6, 1245195, 196608, 6, 1245196, 0, 6, 1245197, 65536, 6, 1245198, 131072, 6, 1245199, 196608, 6, 1245200, 0, 6, 1245201, 196608, 6, 1245202, 786432, 5, 1245203, 0, 6, 1245204, 196608, 6, 1245205, 786432, 5, 1245206, 786432, 5, 1245207, 0, 6, 1245208, 196608, 6, 1245209, 851968, 5, 1245210, 917504, 5, 1245211, 983040, 5, 1245212, 786432, 7, 1179651, 0, 5, 1179652, 196608, 5, 1179653, 786432, 4, 1179654, 786432, 4, 1179655, 0, 5, 1179656, 196608, 5, 1179657, 786432, 4, 1179658, 0, 5, 1179659, 196608, 5, 1179660, 0, 5, 1179661, 65536, 5, 1179662, 131072, 5, 1179663, 196608, 5, 1179664, 0, 5, 1179665, 196608, 5, 1179666, 786432, 4, 1179667, 0, 5, 1179668, 196608, 5, 1179669, 786432, 4, 1179670, 786432, 4, 1179671, 0, 5, 1179672, 196608, 5, 1179673, 851968, 4, 1179674, 917504, 4, 1179675, 983040, 4, 196610, 720896, 3, 262146, 720896, 3, 327682, 720896, 3, 524290, 720896, 3, 393218, 720896, 3, 458754, 720896, 3, 589826, 720896, 3, 655362, 720896, 3, 720898, 720896, 3, 786434, 720896, 3, 851970, 720896, 3, 917506, 720896, 3, 983042, 720896, 3, 1048578, 720896, 3, 1114114, 720896, 3, 196636, 917504, 7, 262172, 917504, 7, 327708, 917504, 7, 393244, 917504, 7, 458780, 917504, 7, 524316, 917504, 7, 589852, 917504, 7, 655388, 917504, 7, 720924, 917504, 7, 786460, 917504, 7, 851996, 917504, 7, 917532, 786432, 7, 983068, 786432, 7, 1048604, 786432, 7, 1114140, 786432, 7, 1310748, 786432, 7, 1310747, 983040, 6, 1310746, 917504, 6, 1310745, 851968, 6, 1310744, 196608, 7, 1310743, 0, 7, 1310742, 851968, 6, 1310741, 851968, 6, 1310740, 196608, 7, 1310739, 0, 7, 1310738, 851968, 6, 1310737, 196608, 7, 1310736, 0, 7, 1310735, 196608, 7, 1310734, 131072, 7, 1310733, 65536, 7, 1310732, 0, 7, 1310731, 196608, 7, 1310730, 0, 7, 1310729, 851968, 6, 1310728, 196608, 7, 1310727, 0, 7, 1310726, 851968, 6, 1310725, 851968, 6, 1310724, 196608, 7, 1310723, 0, 7, 1310722, 851968, 6, 1310721, 851968, 6, 1310720, 589824, 6, 655360, 589824, 4, 720896, 589824, 4, 786432, 589824, 4, 851968, 589824, 4, 917504, 589824, 4, 983040, 589824, 4, 1048576, 589824, 4, 1114112, 589824, 4, 1179648, 589824, 4, 1245184, 589824, 4, 196611, 131072, 2, 262147, 65536, 0, 327683, 131072, 1, 393219, 131072, 0, 458755, 0, 2, 524291, 0, 0, 589827, 131072, 2, 655363, 65536, 1, 720899, 65536, 1, 786435, 65536, 1, 851971, 65536, 1, 917507, 0, 2, 983043, 65536, 2, 1048579, 196608, 2, 1114115, 131072, 1, 196612, 131072, 0, 262148, 131072, 2, 327684, 131072, 0, 393220, 196608, 1, 458756, 0, 1, 524292, 131072, 2, 589828, 131072, 2, 655364, 65536, 1, 720900, 65536, 1, 786436, 65536, 1, 851972, 65536, 1, 917508, 131072, 1, 983044, 131072, 0, 1048580, 131072, 1, 1114116, 0, 0, 196613, 0, 2, 262149, 196608, 2, 327685, 65536, 2, 393221, 65536, 0, 458757, 196608, 0, 524293, 196608, 1, 589829, 196608, 1, 655365, 65536, 1, 720901, 65536, 1, 786437, 65536, 1, 851973, 65536, 1, 917509, 65536, 2, 983045, 0, 0, 1048581, 65536, 0, 1114117, 196608, 0, 196614, 196608, 1, 262150, 131072, 2, 327686, 65536, 0, 393222, 131072, 1, 458758, 131072, 0, 524294, 131072, 2, 589830, 65536, 2, 655366, 65536, 1, 720902, 65536, 1, 786438, 65536, 1, 851974, 65536, 1, 917510, 0, 1, 983046, 0, 1, 1048582, 196608, 0, 1114118, 65536, 0, 196615, 196608, 0, 262151, 196608, 0, 327687, 131072, 2, 393223, 65536, 2, 458759, 0, 0, 524295, 196608, 2, 589831, 0, 0, 655367, 65536, 1, 720903, 65536, 1, 786439, 65536, 1, 851975, 65536, 1, 983047, 131072, 1, 1048583, 196608, 1, 1114119, 196608, 0, 196616, 196608, 2, 262152, 131072, 1, 327688, 65536, 0, 393224, 65536, 1, 458760, 131072, 2, 524296, 131072, 0, 589832, 131072, 2, 655368, 65536, 1, 720904, 65536, 1, 786440, 65536, 1, 851976, 65536, 1, 917512, 196608, 2, 983048, 131072, 0, 1048584, 131072, 1, 1114120, 196608, 1, 196617, 196608, 1, 262153, 0, 1, 327689, 65536, 2, 393225, 65536, 1, 458761, 0, 0, 524297, 131072, 0, 589833, 65536, 0, 655369, 65536, 1, 720905, 65536, 1, 786441, 65536, 1, 851977, 65536, 1, 917513, 131072, 2, 983049, 196608, 2, 1048585, 65536, 2, 1114121, 131072, 1, 196618, 0, 1, 262154, 65536, 2, 327690, 0, 0, 393226, 131072, 0, 458762, 0, 2, 524298, 196608, 1, 589834, 0, 2, 655370, 65536, 1, 720906, 65536, 1, 786442, 65536, 1, 851978, 65536, 1, 917514, 0, 2, 983050, 131072, 1, 1048586, 131072, 0, 1114122, 65536, 1, 196619, 131072, 1, 262155, 196608, 1, 327691, 0, 0, 393227, 131072, 0, 458763, 196608, 2, 524299, 196608, 2, 589835, 65536, 2, 655371, 65536, 1, 720907, 65536, 1, 786443, 65536, 1, 851979, 65536, 1, 917515, 196608, 2, 983051, 65536, 1, 1048587, 0, 1, 1114123, 0, 2, 196620, 0, 1, 262156, 196608, 0, 327692, 0, 0, 393228, 0, 1, 458764, 0, 2, 524300, 131072, 2, 589836, 65536, 1, 720908, 65536, 1, 786444, 65536, 1, 851980, 65536, 1, 917516, 0, 0, 983052, 131072, 1, 1048588, 196608, 0, 1114124, 196608, 0, 196621, 65536, 2, 262157, 196608, 0, 327693, 0, 1, 393229, 65536, 0, 458765, 196608, 2, 524301, 131072, 1, 589837, 196608, 1, 655373, 65536, 1, 720909, 65536, 1, 786445, 65536, 1, 851981, 65536, 1, 917517, 65536, 1, 983053, 0, 2, 1048589, 131072, 1, 1114125, 0, 2, 196622, 131072, 2, 262158, 131072, 0, 327694, 0, 1, 393230, 65536, 0, 458766, 131072, 0, 524302, 0, 0, 589838, 131072, 0, 655374, 65536, 1, 720910, 65536, 1, 786446, 65536, 1, 851982, 65536, 1, 917518, 131072, 0, 983054, 65536, 2, 1048590, 196608, 0, 1114126, 0, 2, 196623, 0, 1, 262159, 196608, 0, 327695, 196608, 0, 393231, 0, 1, 458767, 65536, 0, 524303, 65536, 0, 589839, 131072, 1, 655375, 65536, 1, 720911, 65536, 1, 786447, 65536, 1, 851983, 65536, 1, 917519, 0, 2, 983055, 196608, 2, 1114127, 196608, 1, 196624, 65536, 1, 262160, 196608, 2, 327696, 196608, 1, 393232, 196608, 1, 458768, 131072, 1, 524304, 65536, 1, 589840, 196608, 1, 655376, 65536, 1, 720912, 65536, 1, 786448, 65536, 1, 851984, 65536, 1, 917520, 196608, 1, 983056, 0, 2, 1048592, 0, 2, 1114128, 196608, 0, 196625, 131072, 2, 262161, 65536, 0, 327697, 0, 0, 393233, 131072, 1, 458769, 196608, 0, 524305, 0, 0, 589841, 65536, 0, 655377, 65536, 1, 720913, 65536, 1, 786449, 65536, 1, 851985, 65536, 1, 917521, 65536, 0, 983057, 196608, 2, 1048593, 0, 2, 1114129, 131072, 1, 196626, 196608, 1, 262162, 0, 1, 327698, 0, 0, 393234, 0, 0, 458770, 196608, 2, 524306, 131072, 1, 589842, 131072, 1, 655378, 65536, 1, 720914, 65536, 1, 786450, 65536, 1, 851986, 65536, 1, 917522, 131072, 2, 983058, 131072, 2, 1114130, 196608, 1, 196627, 65536, 0, 262163, 131072, 0, 327699, 65536, 2, 393235, 0, 2, 458771, 65536, 0, 524307, 196608, 0, 589843, 196608, 0, 655379, 65536, 1, 720915, 65536, 1, 786451, 65536, 1, 851987, 65536, 1, 917523, 65536, 2, 983059, 65536, 0, 1048595, 0, 0, 1114131, 131072, 1, 196628, 0, 0, 262164, 196608, 2, 327700, 0, 0, 393236, 196608, 1, 458772, 196608, 1, 524308, 0, 1, 589844, 196608, 0, 655380, 65536, 1, 720916, 65536, 1, 786452, 65536, 1, 851988, 65536, 1, 917524, 131072, 1, 983060, 131072, 0, 1048596, 131072, 0, 1114132, 65536, 2, 196629, 131072, 0, 262165, 65536, 0, 327701, 65536, 1, 393237, 131072, 0, 458773, 131072, 1, 524309, 0, 1, 589845, 0, 0, 655381, 65536, 1, 720917, 65536, 1, 786453, 65536, 1, 851989, 65536, 1, 917525, 131072, 0, 983061, 196608, 1, 1048597, 0, 0, 1114133, 131072, 2, 196630, 65536, 0, 262166, 65536, 1, 327702, 65536, 1, 393238, 196608, 2, 458774, 131072, 2, 524310, 196608, 2, 589846, 196608, 2, 655382, 65536, 1, 720918, 65536, 1, 786454, 65536, 1, 851990, 65536, 1, 917526, 131072, 1, 983062, 196608, 2, 1048598, 65536, 1, 1114134, 131072, 1, 196631, 0, 2, 262167, 131072, 0, 327703, 196608, 1, 393239, 131072, 0, 458775, 131072, 1, 524311, 0, 0, 589847, 0, 0, 655383, 65536, 1, 720919, 65536, 1, 786455, 65536, 1, 851991, 65536, 1, 917527, 196608, 1, 983063, 0, 1, 1048599, 0, 2, 1114135, 196608, 0, 196632, 131072, 0, 262168, 131072, 1, 327704, 131072, 0, 393240, 196608, 2, 458776, 0, 1, 524312, 196608, 2, 589848, 65536, 1, 655384, 65536, 1, 720920, 65536, 1, 786456, 65536, 1, 851992, 65536, 1, 917528, 65536, 1, 983064, 65536, 2, 1048600, 196608, 0, 1114136, 196608, 2, 196633, 851968, 3, 262169, 851968, 3, 327705, 851968, 3, 393241, 851968, 3, 458777, 851968, 3, 524313, 851968, 3, 589849, 851968, 3, 655385, 851968, 3, 720921, 851968, 3, 786457, 851968, 3, 851993, 851968, 3, 917529, 851968, 3, 983065, 851968, 3, 1048601, 851968, 3, 1114137, 851968, 3, 196634, 917504, 3, 262170, 917504, 3, 327706, 917504, 3, 393242, 917504, 3, 458778, 917504, 3, 524314, 917504, 3, 589850, 917504, 3, 655386, 917504, 3, 720922, 917504, 3, 786458, 917504, 3, 851994, 917504, 3, 983066, 917504, 3, 1048602, 917504, 3, 1114138, 917504, 3, 196635, 983040, 3, 262171, 983040, 3, 327707, 983040, 3, 393243, 983040, 3, 458779, 983040, 3, 524315, 983040, 3, 589851, 983040, 3, 655387, 983040, 3, 720923, 983040, 3, 786459, 983040, 3, 851995, 983040, 3, 917531, 983040, 3, 983067, 983040, 3, 1048603, 983040, 3, 1114139, 983040, 3, 917530, 917504, 3, 1048594, 65536, 1, 1048591, 131072, 1, 917511, 0, 2, 655372, 65536, 1, -65536, 720896, 7, -65535, 720896, 7, -65534, 720896, 7, -65533, 720896, 7, -65532, 720896, 7, -65531, 720896, 7, -65530, 720896, 7, -65529, 720896, 7, -65528, 720896, 7, -65527, 720896, 7, -65526, 720896, 7, -65525, 720896, 7, -65524, 720896, 7, -65523, 720896, 7, -65522, 720896, 7, -65521, 720896, 7, -65520, 720896, 7, -65519, 720896, 7, -65518, 720896, 7, -65517, 720896, 7, -65516, 720896, 7, -65515, 720896, 7, -65514, 720896, 7, -65513, 720896, 7, -65512, 720896, 7, -65511, 720896, 7, -65510, 720896, 7, -65509, 720896, 7, -65508, 720896, 7, -1, 720896, 7, 65535, 720896, 7, 131071, 720896, 7, 196607, 720896, 7, 262143, 720896, 7, 327679, 720896, 7, 393215, 720896, 7, 458751, 720896, 7, 524287, 720896, 7, 589823, 720896, 7, 655359, 720896, 7, 720895, 720896, 7, 786431, 720896, 7, 851967, 720896, 7, 917503, 720896, 7, 983039, 720896, 7, 1048575, 720896, 7, 1114111, 720896, 7, 1179647, 720896, 7, 1245183, 720896, 7, 1310719, 720896, 7, 1376255, 720896, 7)
+layer_0/tile_data = PackedInt32Array(0, 589824, 0, 1, 655360, 0, 2, 655360, 0, 3, 262144, 5, 4, 458752, 5, 5, 655360, 0, 6, 655360, 0, 7, 262144, 5, 8, 458752, 5, 9, 655360, 0, 10, 655360, 0, 11, 262144, 5, 12, 458752, 5, 13, 655360, 0, 14, 655360, 0, 15, 262144, 5, 16, 458752, 5, 17, 655360, 0, 18, 655360, 0, 19, 262144, 5, 20, 458752, 5, 65536, 589824, 2, 131072, 589824, 2, 196608, 589824, 2, 262144, 589824, 2, 327680, 589824, 2, 393216, 589824, 2, 458752, 589824, 2, 524288, 589824, 2, 589824, 589824, 2, 65537, 655360, 1, 131074, 720896, 2, 65538, 786432, 1, 65539, 262144, 6, 65540, 458752, 6, 65541, 786432, 1, 65542, 786432, 1, 65543, 262144, 6, 65544, 458752, 6, 65545, 786432, 1, 65546, 786432, 1, 65547, 262144, 6, 65548, 458752, 6, 65549, 786432, 1, 65550, 786432, 1, 65551, 262144, 6, 65552, 458752, 6, 65553, 786432, 1, 65554, 786432, 1, 65555, 262144, 6, 65556, 458752, 6, 131075, 262144, 7, 131076, 458752, 7, 131077, 786432, 2, 131078, 786432, 2, 131079, 262144, 7, 131080, 458752, 7, 131081, 786432, 2, 131082, 786432, 2, 131083, 262144, 7, 131084, 458752, 7, 131085, 786432, 2, 131086, 786432, 2, 131087, 262144, 7, 131088, 458752, 7, 131089, 786432, 2, 131090, 786432, 2, 131091, 262144, 7, 131092, 851968, 2, 131073, 655360, 3, 196609, 655360, 3, 262145, 655360, 3, 327681, 655360, 3, 393217, 655360, 3, 458753, 655360, 3, 524289, 655360, 3, 589825, 655360, 3, 655361, 655360, 3, 196610, 720896, 3, 262146, 720896, 3, 327682, 720896, 3, 524290, 720896, 3, 393218, 720896, 3, 458754, 720896, 3, 589826, 720896, 3, 655362, 720896, 3, 720898, 720896, 3, 655360, 589824, 4, 196611, 131072, 2, 262147, 65536, 0, 327683, 131072, 1, 393219, 131072, 0, 458755, 0, 2, 524291, 0, 0, 589827, 131072, 2, 655363, 65536, 1, 720899, 65536, 1, 786435, 65536, 1, 196612, 131072, 0, 262148, 131072, 2, 327684, 131072, 0, 393220, 196608, 1, 458756, 0, 1, 524292, 131072, 2, 589828, 131072, 2, 655364, 65536, 1, 720900, 65536, 1, 786436, 65536, 1, 196613, 0, 2, 262149, 196608, 2, 327685, 65536, 2, 393221, 65536, 0, 458757, 196608, 0, 524293, 196608, 1, 589829, 196608, 1, 655365, 65536, 1, 720901, 65536, 1, 786437, 65536, 1, 196614, 196608, 1, 262150, 131072, 2, 327686, 65536, 0, 393222, 131072, 1, 458758, 131072, 0, 524294, 131072, 2, 589830, 65536, 2, 655366, 65536, 1, 720902, 65536, 1, 786438, 65536, 1, 196615, 196608, 0, 262151, 196608, 0, 327687, 131072, 2, 393223, 65536, 2, 458759, 0, 0, 524295, 196608, 2, 589831, 0, 0, 655367, 65536, 1, 720903, 65536, 1, 786439, 65536, 1, 196616, 196608, 2, 262152, 131072, 1, 327688, 65536, 0, 393224, 65536, 1, 458760, 131072, 2, 524296, 131072, 0, 589832, 131072, 2, 655368, 65536, 1, 720904, 65536, 1, 786440, 65536, 1, 196617, 196608, 1, 262153, 0, 1, 327689, 65536, 2, 393225, 65536, 1, 458761, 0, 0, 524297, 131072, 0, 589833, 65536, 0, 655369, 65536, 1, 720905, 65536, 1, 786441, 65536, 1, 196618, 0, 1, 262154, 65536, 2, 327690, 0, 0, 393226, 131072, 0, 458762, 0, 2, 524298, 196608, 1, 589834, 0, 2, 655370, 65536, 1, 720906, 65536, 1, 786442, 0, 4, 196619, 131072, 1, 262155, 196608, 1, 327691, 0, 0, 393227, 131072, 0, 458763, 196608, 2, 524299, 196608, 2, 589835, 65536, 2, 655371, 65536, 1, 720907, 65536, 1, 786443, 65536, 1, 196620, 0, 1, 262156, 196608, 0, 327692, 0, 0, 393228, 0, 1, 458764, 0, 2, 524300, 131072, 2, 589836, 65536, 1, 720908, 65536, 1, 786444, 65536, 1, 196621, 65536, 2, 262157, 196608, 0, 327693, 0, 1, 393229, 65536, 0, 458765, 196608, 2, 524301, 131072, 1, 589837, 196608, 1, 655373, 65536, 1, 720909, 65536, 1, 786445, 65536, 1, 196622, 131072, 2, 262158, 131072, 0, 327694, 0, 1, 393230, 65536, 0, 458766, 131072, 0, 524302, 0, 0, 589838, 131072, 0, 655374, 65536, 1, 720910, 65536, 1, 786446, 65536, 1, 196623, 0, 1, 262159, 196608, 0, 327695, 196608, 0, 393231, 0, 1, 458767, 65536, 0, 524303, 65536, 0, 589839, 131072, 1, 655375, 65536, 1, 720911, 65536, 1, 786447, 65536, 1, 196624, 65536, 1, 262160, 196608, 2, 327696, 196608, 1, 393232, 196608, 1, 458768, 131072, 1, 524304, 65536, 1, 589840, 196608, 1, 655376, 65536, 1, 720912, 65536, 1, 786448, 65536, 1, 196625, 131072, 2, 262161, 65536, 0, 327697, 0, 0, 393233, 131072, 1, 458769, 196608, 0, 524305, 0, 0, 589841, 65536, 0, 655377, 65536, 1, 720913, 65536, 1, 786449, 65536, 1, 196626, 196608, 1, 262162, 0, 1, 327698, 0, 0, 393234, 0, 0, 458770, 196608, 2, 524306, 131072, 1, 589842, 131072, 1, 655378, 65536, 1, 720914, 65536, 1, 786450, 65536, 1, 196627, 65536, 0, 262163, 131072, 0, 327699, 65536, 2, 393235, 0, 2, 458771, 65536, 0, 524307, 196608, 0, 589843, 196608, 0, 655379, 65536, 1, 720915, 65536, 1, 786451, 65536, 1, 196628, 851968, 3, 262164, 851968, 3, 327700, 851968, 3, 393236, 851968, 3, 458772, 851968, 3, 524308, 851968, 3, 589844, 851968, 3, 655380, 851968, 3, 720916, 851968, 3, 786452, 851968, 3, 655372, 65536, 1, -65536, 720896, 7, -65535, 720896, 7, -65534, 720896, 7, -65533, 720896, 7, -65532, 720896, 7, -65531, 720896, 7, -65530, 720896, 7, -65529, 720896, 7, -65528, 720896, 7, -65527, 720896, 7, -65526, 720896, 7, -65525, 720896, 7, -65524, 720896, 7, -65523, 720896, 7, -65522, 720896, 7, -65521, 720896, 7, -65520, 720896, 7, -65519, 720896, 7, -65518, 720896, 7, -65517, 720896, 7, -65516, 720896, 7, -1, 720896, 7, 65535, 720896, 7, 131071, 720896, 7, 196607, 720896, 7, 262143, 720896, 7, 327679, 720896, 7, 393215, 720896, 7, 458751, 720896, 7, 524287, 720896, 7, 589823, 720896, 7, 655359, 720896, 7, 720895, 720896, 7, 21, 917504, 0, 65557, 917504, 1, 22, 983040, 0, 65558, 983040, 1, 131093, 917504, 2, 131094, 983040, 2, 196629, 917504, 3, 196630, 983040, 3, 262165, 917504, 3, 262166, 983040, 3, 327701, 917504, 3, 327702, 983040, 3, 393237, 917504, 3, 393238, 983040, 3, 458773, 917504, 3, 458774, 983040, 3, 524309, 917504, 3, 524310, 983040, 3, 589845, 917504, 3, 589846, 983040, 3, 655381, 917504, 3, 655382, 983040, 3, 720917, 917504, 3, 720918, 983040, 5, 851968, 589824, 4, 917504, 589824, 5, 983040, 589824, 6, 851969, 655360, 4, 917505, 655360, 5, 983041, 655360, 6, 851970, 720896, 4, 917506, 720896, 5, 983042, 720896, 6, 786432, 589824, 3, 786433, 655360, 3, 786434, 720896, 3, 720896, 589824, 3, 720897, 655360, 3, 851971, 786432, 4, 917507, 786432, 5, 983043, 786432, 6, 851972, 786432, 4, 917508, 786432, 5, 983044, 786432, 6, 851973, 786432, 4, 917509, 786432, 5, 983045, 786432, 6, 851974, 786432, 4, 917510, 786432, 5, 983046, 786432, 6, 851975, 786432, 4, 917511, 786432, 5, 983047, 786432, 6, 851976, 786432, 4, 917512, 786432, 5, 983048, 786432, 6, 851988, 851968, 4, 917524, 851968, 5, 983060, 851968, 6, 851989, 917504, 4, 917525, 917504, 5, 983061, 786432, 6, 851990, 983040, 5, 917526, 983040, 5, 983062, 983040, 6, 786453, 917504, 3, 786454, 983040, 5, 851979, 0, 5, 917515, 0, 6, 983051, 0, 7, 851980, 65536, 5, 917516, 65536, 6, 983052, 65536, 7, 851981, 131072, 5, 917517, 131072, 6, 983053, 131072, 7, 851982, 196608, 5, 917518, 196608, 6, 983054, 196608, 7, 851987, 786432, 4, 917523, 786432, 5, 983059, 851968, 6, 851986, 786432, 4, 917522, 786432, 5, 983058, 786432, 6, 851985, 786432, 4, 917521, 786432, 5, 983057, 786432, 6, 851984, 786432, 4, 917520, 786432, 5, 983056, 786432, 6, 851983, 786432, 4, 917519, 786432, 5, 983055, 786432, 6, 851978, 786432, 4, 917514, 786432, 5, 983050, 786432, 6, 851977, 786432, 4, 917513, 786432, 5, 983049, 786432, 6, 786431, 589824, 7, 851967, 589824, 7, 917503, 589824, 7, 983039, 589824, 7, 1048575, 589824, 7, 1114111, 589824, 7, 1048576, 589824, 7, 1048577, 589824, 7, 1048578, 589824, 7, 1048579, 589824, 7, 1048580, 589824, 7, 1048581, 589824, 7, 1048582, 589824, 7, 1048583, 589824, 7, 1048584, 589824, 7, 1048585, 589824, 7, 1048586, 589824, 7, 1048587, 589824, 7, 1048588, 589824, 7, 1048589, 589824, 7, 1048590, 589824, 7, 1048591, 589824, 7, 1048592, 589824, 7, 1048593, 589824, 7, 1048594, 589824, 7, 1048595, 589824, 7, 1048598, 589824, 7, 1048597, 589824, 7, 1048596, 589824, 7, 1048599, 589824, 7, 983063, 589824, 7, 917527, 589824, 7, 851991, 589824, 7, 786455, 589824, 7, 720919, 589824, 7, 655383, 589824, 7, 589847, 589824, 7, 524311, 589824, 7, 458775, 589824, 7, 393239, 589824, 7, 327703, 589824, 7, 262167, 589824, 7, -65515, 589824, 7, -65514, 589824, 7, -65513, 589824, 7, 23, 589824, 7, 65559, 589824, 7, 131095, 589824, 7, 196631, 589824, 7)
 layer_1/name = "objects"
 layer_1/tile_data = PackedInt32Array()
 
 [node name="Player_Spawn" parent="." instance=ExtResource("2_qn1u2")]
-position = Vector2(440, 256)
+position = Vector2(432, 416)
 
 [node name="Room_10_Bottom" parent="." instance=ExtResource("3_rbpj6")]
-position = Vector2(448, 616)
+position = Vector2(416, 440)
 level = "res://Scenes/Levels/Dongeons/Dongeons/room_09.tscn"
 target_transition_area = "Room_9_Top"
 center_player = true
@@ -35,52 +727,156 @@ blend_mode = 2
 y_sort_enabled = true
 
 [node name="Torche_Dungon" parent="Elements" instance=ExtResource("6_3phjm")]
-position = Vector2(200, 104)
+position = Vector2(112, 112)
 
 [node name="Torche_Dungon2" parent="Elements" instance=ExtResource("6_3phjm")]
-position = Vector2(112, 168)
+position = Vector2(112, 408)
 
 [node name="Torche_Dungon3" parent="Elements" instance=ExtResource("6_3phjm")]
-position = Vector2(328, 104)
+position = Vector2(624, 104)
 
 [node name="Torche_Dungon4" parent="Elements" instance=ExtResource("6_3phjm")]
-position = Vector2(448, 104)
+position = Vector2(624, 408)
 
-[node name="Torche_Dungon5" parent="Elements" instance=ExtResource("6_3phjm")]
-position = Vector2(576, 104)
+[node name="BossWizard" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("7_5h3o8")
+max_hp = 2
 
-[node name="Torche_Dungon6" parent="Elements" instance=ExtResource("6_3phjm")]
-position = Vector2(704, 104)
+[node name="PersistenceDataHandler" parent="BossWizard" instance=ExtResource("7_i4eye")]
 
-[node name="Torche_Dungon7" parent="Elements" instance=ExtResource("6_3phjm")]
-position = Vector2(784, 152)
+[node name="BossNode" type="Node2D" parent="BossWizard"]
+position = Vector2(360, 264)
 
-[node name="Torche_Dungon8" parent="Elements" instance=ExtResource("6_3phjm")]
-position = Vector2(784, 256)
+[node name="ShadowsSprite" type="Sprite2D" parent="BossWizard/BossNode"]
+texture = SubResource("GradientTexture2D_nvyt2")
 
-[node name="Torche_Dungon9" parent="Elements" instance=ExtResource("6_3phjm")]
-position = Vector2(784, 368)
+[node name="CloakSprite" type="Sprite2D" parent="BossWizard/BossNode"]
+modulate = Color(2, 1.25, 1.5, 1)
+position = Vector2(0, -34)
+texture = ExtResource("7_b4p57")
+hframes = 9
 
-[node name="Torche_Dungon10" parent="Elements" instance=ExtResource("6_3phjm")]
-position = Vector2(784, 472)
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BossWizard/BossNode/CloakSprite"]
+libraries = {
+"": SubResource("AnimationLibrary_f065g")
+}
+autoplay = "Down"
 
-[node name="Torche_Dungon11" parent="Elements" instance=ExtResource("6_3phjm")]
-position = Vector2(704, 568)
+[node name="Hand01" type="Sprite2D" parent="BossWizard/BossNode/CloakSprite"]
+position = Vector2(20, 4)
+texture = ExtResource("8_7nage")
+hframes = 16
 
-[node name="Torche_Dungon12" parent="Elements" instance=ExtResource("6_3phjm")]
-position = Vector2(576, 568)
+[node name="Hand02" type="Sprite2D" parent="BossWizard/BossNode/CloakSprite"]
+position = Vector2(-20, 4)
+texture = ExtResource("8_7nage")
+flip_h = true
+hframes = 16
 
-[node name="Torche_Dungon15" parent="Elements" instance=ExtResource("6_3phjm")]
-position = Vector2(320, 568)
+[node name="Hand01_UP" type="Sprite2D" parent="BossWizard/BossNode/CloakSprite"]
+visible = false
+show_behind_parent = true
+position = Vector2(20, 4)
+texture = ExtResource("8_7nage")
+hframes = 16
 
-[node name="Torche_Dungon16" parent="Elements" instance=ExtResource("6_3phjm")]
-position = Vector2(200, 568)
+[node name="Hand02_UP" type="Sprite2D" parent="BossWizard/BossNode/CloakSprite"]
+visible = false
+show_behind_parent = true
+position = Vector2(-20, 4)
+texture = ExtResource("8_7nage")
+flip_h = true
+hframes = 16
 
-[node name="Torche_Dungon17" parent="Elements" instance=ExtResource("6_3phjm")]
-position = Vector2(112, 472)
+[node name="Hand01_Side" type="Sprite2D" parent="BossWizard/BossNode/CloakSprite"]
+visible = false
+show_behind_parent = true
+position = Vector2(20, 4)
+texture = ExtResource("8_7nage")
+offset = Vector2(-12, -4)
+hframes = 16
 
-[node name="Torche_Dungon18" parent="Elements" instance=ExtResource("6_3phjm")]
-position = Vector2(112, 368)
+[node name="Hand02_Side" type="Sprite2D" parent="BossWizard/BossNode/CloakSprite"]
+visible = false
+position = Vector2(-20, 4)
+texture = ExtResource("8_7nage")
+offset = Vector2(20, 4)
+hframes = 16
 
-[node name="Torche_Dungon19" parent="Elements" instance=ExtResource("6_3phjm")]
-position = Vector2(112, 256)
+[node name="PointLight2D" type="PointLight2D" parent="BossWizard/BossNode"]
+texture = SubResource("GradientTexture2D_qjjpg")
+
+[node name="Hurt_Box" parent="BossWizard/BossNode" instance=ExtResource("8_ghot5")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BossWizard/BossNode/Hurt_Box"]
+position = Vector2(0, -16)
+shape = SubResource("CircleShape2D_86dkg")
+
+[node name="Hit_Box" parent="BossWizard/BossNode" instance=ExtResource("9_y3gem")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BossWizard/BossNode/Hit_Box"]
+position = Vector2(0, -24)
+shape = SubResource("CircleShape2D_salfj")
+debug_color = Color(1, 1, 0, 0)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="BossWizard/BossNode"]
+max_polyphony = 2
+bus = &"SFX"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BossWizard/BossNode"]
+libraries = {
+"": SubResource("AnimationLibrary_irmek")
+}
+autoplay = "Idle"
+
+[node name="AnimationPlayer_damage" type="AnimationPlayer" parent="BossWizard/BossNode"]
+libraries = {
+"": SubResource("AnimationLibrary_gpym0")
+}
+autoplay = "default"
+
+[node name="BeamAttack" type="Node2D" parent="BossWizard"]
+
+[node name="EB_h1" parent="BossWizard/BeamAttack" instance=ExtResource("7_pwxus")]
+position = Vector2(393, 136)
+
+[node name="EB_h2" parent="BossWizard/BeamAttack" instance=ExtResource("7_pwxus")]
+position = Vector2(392, 256)
+
+[node name="EB_h3" parent="BossWizard/BeamAttack" instance=ExtResource("7_pwxus")]
+position = Vector2(400, 376)
+
+[node name="EB_V1" parent="BossWizard/BeamAttack" instance=ExtResource("7_pwxus")]
+position = Vector2(128, 320)
+rotation = 1.5708
+
+[node name="EB_V2" parent="BossWizard/BeamAttack" instance=ExtResource("7_pwxus")]
+position = Vector2(360, 320)
+rotation = 1.5708
+
+[node name="EB_V3" parent="BossWizard/BeamAttack" instance=ExtResource("7_pwxus")]
+position = Vector2(616, 352)
+rotation = 1.5708
+
+[node name="PositionTargets" type="Node2D" parent="BossWizard"]
+
+[node name="Sprite2D" type="Sprite2D" parent="BossWizard/PositionTargets"]
+position = Vector2(384, 136)
+texture = SubResource("GradientTexture2D_m18rd")
+
+[node name="Sprite2D4" type="Sprite2D" parent="BossWizard/PositionTargets"]
+position = Vector2(608, 256)
+texture = SubResource("GradientTexture2D_m18rd")
+
+[node name="Sprite2D2" type="Sprite2D" parent="BossWizard/PositionTargets"]
+position = Vector2(384, 376)
+texture = SubResource("GradientTexture2D_m18rd")
+
+[node name="Sprite2D3" type="Sprite2D" parent="BossWizard/PositionTargets"]
+position = Vector2(128, 248)
+texture = SubResource("GradientTexture2D_m18rd")
+
+[node name="Door_Enemy" parent="." instance=ExtResource("15_ny4f6")]
+position = Vector2(448, 424)
+rotation = 3.14159

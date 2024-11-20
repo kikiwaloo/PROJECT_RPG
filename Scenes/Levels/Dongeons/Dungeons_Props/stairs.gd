@@ -5,6 +5,7 @@ class_name Stairs
 @onready var stair_up = $Stair_Up
 @onready var stair_down = $Stair_Down
 
+var state: State 
 
 func _on_area_2d_body_entered(body):
 	if body is Player:
@@ -12,7 +13,9 @@ func _on_area_2d_body_entered(body):
 			stair_up.play()
 			var tween = create_tween()
 			tween.tween_property(PlayerManager.player, "position", Vector2.UP * 64,1.3).as_relative()
+			
 		else:
 			var tween = create_tween()
 			tween.tween_property(PlayerManager.player, "position", Vector2.DOWN * 64,1.3).as_relative()
 			stair_down.play()
+	

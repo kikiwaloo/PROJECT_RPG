@@ -3118,24 +3118,21 @@ texture_region_size = Vector2i(32, 8)
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6tbfb"]
 texture = ExtResource("12_jduvd")
 texture_region_size = Vector2i(32, 32)
-0:0/size_in_atlas = Vector2i(2, 2)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 0:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_1/angular_velocity = 0.0
-2:0/size_in_atlas = Vector2i(2, 2)
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_1/angular_velocity = 0.0
 2:0/0 = 0
 2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:0/0/physics_layer_0/angular_velocity = 0.0
 2:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 2:0/0/physics_layer_1/angular_velocity = 0.0
-4:0/size_in_atlas = Vector2i(2, 2)
-4:0/0 = 0
-4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-4:0/0/physics_layer_0/angular_velocity = 0.0
-4:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
-4:0/0/physics_layer_1/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mt3o2"]
 texture = ExtResource("3_ygr1w")

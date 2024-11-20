@@ -53,14 +53,12 @@ shape = SubResource("RectangleShape2D_aud6a")
 debug_color = Color(0.0765775, 0.649298, 1.92523e-07, 0.42)
 
 [node name="Control" type="Control" parent="."]
-z_index = 1
 layout_mode = 3
 anchors_preset = 0
 offset_top = -88.0
 offset_bottom = -88.0
 
 [node name="Panel" type="Panel" parent="Control"]
-show_behind_parent = true
 y_sort_enabled = true
 layout_mode = 0
 offset_left = -184.0

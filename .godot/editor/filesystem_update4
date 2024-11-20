@@ -1,9 +1,11 @@
-res://Scenes/Levels/World/03.tscn
+res://Scenes/Levels/Dongeons/Black_Wizzard/energy_orbs.tscn
 res://Scenes/Items/Item_Data/Apple.tres
 res://Scenes/Items/Item_Data/Blue_Rupee.tres
 res://Scenes/Items/Item_Data/Green_Rupee.tres
 res://Scenes/Items/Item_Data/Red_Rupee.tres
-res://Scenes/Items/Item_Data/Magie_Bottle.tres
-res://Scenes/Items/Item_Data/Quarter_Heart.tres
-res://Scenes/NPCs/NPCs_Ressources/Villageoie_02.tres
-res://Scenes/Items/Item_Data/Pendentif.tres
+res://Scenes/Levels/Dongeons/Dongeons/BossWizard.gd
+res://Scenes/Levels/Dongeons/Dongeons/room_10.tscn
+res://Scenes/Player/player.tscn
+res://Scenes/Levels/Dongeons/Black_Wizzard/energie_explosion.tscn
+res://Scenes/enemy/Slim/Slim.tscn
+res://Scenes/Levels/Level.gd
